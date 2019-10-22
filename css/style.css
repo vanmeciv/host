@@ -9,7 +9,6 @@ https://templatemo.com/tm-520-highway
 body {
   font-family: 'Kanit', sans-serif;
 }
-
 body::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -25,7 +24,6 @@ body, html {
   min-height: 100%;
   overflow-x: hidden;
 }
-
 
 .page-heading {
   background-image: url(../img/heading_bg.png);
@@ -300,7 +298,11 @@ nav {
 
 #video-container .video-content .inner a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+#video-container .video-content .inner a:hover {
+  color: #b7a57a;
 }
 
 #video-container .video-content .inner .scroll-icon {
@@ -542,7 +544,7 @@ nav {
   100% {
     top: 0%;
     opacity: 1;
-  }  
+  }
 }
 
 @keyframes totop-out {
@@ -553,7 +555,7 @@ nav {
   100% {
     top: -100%;
     opacity: 0;
-  }  
+  }
 }
 
 
@@ -649,18 +651,25 @@ footer a:hover {
 .masonry .item em {
   font-style: normal;
   font-weight: 200;
+  color: black;
  }
 
 .masonry .item:hover h1 {
   transform: translateY(0);
+  color: black;
  }
+
+ .masonry .item:hover h1 #text {
+   transform: translateY(0);
+   color: black;
+  }
 
 .masonry .item p {
   padding-left: 20px;
   font-weight: 300!important;
   letter-spacing: 0.5px;
   font-size: 14px;
-  color: #fff;
+  color: black;
   opacity: 0;
   transform: translateY(10px);
   transition: .5s ease-in-out;
@@ -1190,11 +1199,11 @@ footer a:hover {
 }
 
 .archives ul li, .categories ul li {
-  margin-bottom: 12px; 
+  margin-bottom: 12px;
 }
 
 .archives ul li:last-child, .categories ul li:last-child {
-  margin-bottom: 0px; 
+  margin-bottom: 0px;
 }
 
 .archives ul li a, .categories ul li a {
