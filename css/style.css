@@ -1357,3 +1357,52 @@ footer a:hover {
   }
 
 }
+
+
+
+.fa-linkedin-in {
+  style="padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
+}
+.fa-facebook-f {
+  style="padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
+}
+.fa-behance {
+  style="padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
+}
+.fa-github {
+  style="padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
+}
+.fa-slack {
+
+}
+.fa-python {
+  padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
+}
+.fa-map-pin {
+  color: #fff;
+}
+.fa-map-marker-alt {
+  color: #fff;
+}
+.fa-map-signs {
+  color: #fff;
+}
+.fa-location-arrow {
+  color: #fff;
+}
+.fa-globe-americas {
+  color: #fff;
+}
+.fa-crosshairs {
+  color: #fff;
+}
