@@ -1380,8 +1380,10 @@ footer a:hover {
   text-decoration: none;
   margin: .5em;
 }
-.fa-slack {
-
+.fa-slack-hash {
+  style="padding-top: 10px;
+  text-decoration: none;
+  margin: .5em;
 }
 .fa-python {
   padding-top: 10px;
