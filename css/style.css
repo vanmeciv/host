@@ -1390,7 +1390,13 @@ footer a:hover {
   text-decoration: none;
   margin: .5em;
 }
-.fa-map-pin {
+.fa-server {
+  color: #fff;
+}
+.fa-save {
+  color: #fff;
+}
+.fa-code {
   color: #fff;
 }
 .fa-map-marker-alt {
@@ -1407,4 +1413,47 @@ footer a:hover {
 }
 .fa-crosshairs {
   color: #fff;
+}
+.fa-windows {
+  color: #fff;
+}
+.fa-android {
+  color: #fff;
+}
+.fa-html5 {
+  color: #fff;
+}
+.fa-css3-alt {
+  color: #fff;
+}
+.fa-js-square {
+  color: #fff;
+}
+.fa-wifi {
+  color: #fff
+}
+.fa-desktop {
+  color: #fff
+}
+.fa-database {
+  color: #fff
+}
+.fa-project-diagram {
+  color: #fff
+}
+.fa-ethernet {
+  color: #fff
+}
+.fa-network-wired {
+  color: #fff
+}
+
+#exp {
+  text-align: justify;
+  font-size: 1em;
+  font-style: normal;
+}
+
+#font {
+  font-family: 'Kanit', sans-serif;
 }
