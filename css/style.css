@@ -1416,6 +1416,7 @@ footer a:hover {
 }
 .fa-windows {
   color: #fff;
+  font-weight: 400;
 }
 .fa-android {
   color: #fff;
@@ -1450,10 +1451,9 @@ footer a:hover {
 
 #exp {
   text-align: justify;
-  font-size: 1em;
-  font-style: normal;
 }
 
 #font {
   font-family: 'Kanit', sans-serif;
+  font-size: .9em;
 }
