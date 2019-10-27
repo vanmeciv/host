@@ -1361,33 +1361,27 @@ footer a:hover {
 
 
 .fa-linkedin-in {
-  style="padding-top: 10px;
-  text-decoration: none;
+  padding-top: 10px;
   margin: .5em;
 }
 .fa-facebook-f {
-  style="padding-top: 10px;
-  text-decoration: none;
+  padding-top: 10px;
   margin: .5em;
 }
 .fa-behance {
-  style="padding-top: 10px;
-  text-decoration: none;
+  padding-top: 10px;
   margin: .5em;
 }
 .fa-github {
-  style="padding-top: 10px;
-  text-decoration: none;
+  padding-top: 10px;
   margin: .5em;
 }
 .fa-slack-hash {
-  style="padding-top: 10px;
-  text-decoration: none;
+  padding-top: 10px;
   margin: .5em;
 }
 .fa-python {
   padding-top: 10px;
-  text-decoration: none;
   margin: .5em;
 }
 .fa-server {
@@ -1456,4 +1450,7 @@ footer a:hover {
 #font {
   font-family: 'Kanit', sans-serif;
   font-size: .9em;
+}
+#social {
+  margi
 }
