@@ -26,7 +26,7 @@ body, html {
 }
 
 .page-heading {
-  background-image: url(../img/heading_bg.png);
+  background-image: url(../img/chelan.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -821,7 +821,7 @@ footer a:hover {
 
 
 .more-about-us {
-  background-image: url(../img/about_us.png);
+  background-image: url(../img/Alder-Lake.jpeg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
