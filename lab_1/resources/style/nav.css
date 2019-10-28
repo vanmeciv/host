@@ -1,0 +1,136 @@
+/* Navigation */
+nav {
+    float: left;
+    margin: 0;
+    overflow:hidden;
+    max-height:inherit;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Some style of links inside navigation from https://www.washington.edu/brand/ */
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    background-color: #85754d;
+    list-style-type: none;
+}
+
+nav > ul > li > a {
+
+    display: block;
+    line-height: 2em;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+    background-color: #b7a57a;
+    color: black;
+}
+
+/* Color of inactive nav buttons on hover */
+.nav a#inact:hover {
+    background-color: #b7a57a;
+    color: black;
+}
+
+div.lg-image {
+    content: url(https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/98/2017/06/07212352/BoundlessBand_LeftAngleWordmarkW-HEX.png);
+    float: right;
+    position: relative;
+    width: 35%;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 768px) {
+    div.lg-image {
+        content: url(https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/98/2014/10/07214236/W-Logo_Gold_RGB.png);
+        float: right;
+        position: relative;
+        width: 20%;
+      }
+
+    .text {
+        background-color: #85754d;
+        color: white;
+        font-size: 75%;
+        padding: 7% 0%;
+      }
+
+  }
+}
+
+.logo-div {
+    background:#4b2e83;
+    overflow: hidden;
+}
+
+/* Color for current nav page in nav */
+.act {
+    background-color: #b7a57a;
+    color: white;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans|Open+Sans&display=swap);
+section{
+}
+
+/* fixes footer to bottom */
+.footer {
+  text-align: left;
+  bottom:0;
+	left:0;
+  position: fixed;
+  width: 100%;
+  height: 3em;
+  background-color: #b7a57a;
+  color: white;
+  overflow:hidden;
+  z-index:999;
+  display: inline;
+}
+
+.footer ul {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+.footer ul li {
+  margin: .5em
+}
+
+
+.footer:hover {
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	height: 10em;
+  background-color: #b7a57a;
+  color: black;
+}
+.footer #container{
+	margin-top:5px;
+	width:100%;
+  height:100%;
+  position:relative;
+  top:0;
+  left:0;
+
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}

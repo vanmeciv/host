@@ -1,0 +1,26 @@
+body {
+  background-color: #c2c5cc;
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  color: #000000;
+  font-family: 'Encode Sans', sans-serif;
+}
+h5 {
+  margin: 2em;
+}
+p {
+  background-color: #c2c5cc;
+  font-family: 'Open Sans', sans-serif;
+}
+
+img {
+  max-width: 55%;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-brand {
+    position: relative;
+  }
+}
