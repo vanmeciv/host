@@ -1454,5 +1454,6 @@ footer a:hover {
 }
 .lab_1 {
   height: 19em;
-  width: 24em;
+  width: 30em;
+  margin-left: -2em;
 }
