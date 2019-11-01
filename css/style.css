@@ -1457,3 +1457,7 @@ footer a:hover {
   width: 30em;
   margin-left: -2em;
 }
+
+#mapid {
+  height: 65vh;
+}
