@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<!--
+Thank you templatemo.com for an amazing foundation for  my website. This is the Highway Template found here: https://templatemo.com/tm-520-highway
+-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--DESCRIPTION ON BROWSER TAB - LOGO?-->
+        <title>T GIS 503: Week 5 Reading Response</title>
+<!--jQuery for JSON-->
+        <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.js" crossorigin=""></script>
+<!-- BEGINS ALL THINGS FONT & STYLE-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/light-box.css">
+        <link rel="stylesheet" href="css/style.css">
+<!-- fontAwesome Kit -->
+        <script src="https://kit.fontawesome.com/f198f69782.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<!--fontAwesome Loadtime-->
+        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+<!--END ALL THINGS FONT & STYLE-->
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+<!--BEGIN Leaflet CSS & Script-->
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+
+<!--END Leaflet CSS & Script-->
+    </head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">Isaac <em>V</em></a>
+        </div>
+      <div class="menu-icon">
+        <span></span>
+      </div>
+    </nav>
+    <section class="overlay-menu">
+      <div class="container">
+        <div class="row">
+          <div class="main-menu">
+              <ul>
+                  <li>
+                      <a href="index.html">Main</a>
+                  </li>
+                  <li>
+                      <a href="grid.html">Work</a>
+                  </li>
+                  <li>
+                      <a href="about.html">About Me</a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="page-heading">
+        <div class="container">
+            <div class="heading-content">
+                <h1>T GIS <em>503</em></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="blog-entries">
+        <div class="container">
+            <div class="col-md-9">
+                <div class="blog-posts">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-blog-post">
+
+                                <div class="text-content">
+                                    <h2>Week 5 Reading Response</h2>
+                                    <span><a href="#">28 October 2019</a></span>
+                                    <p>
+
+                                    </br>
+                                    </br>
+                                        Below is a depiction of Washington State Flood Hazard areas:
+                                        <code>https://waecy.maps.arcgis.com/home/webmap/viewer.html?webmap=145ac46173e648a592645fe6426ac7ba</code>
+                                        & Copyright Permissions:
+                                        <code>https://ecology.wa.gov/About-us/Accountability-transparency/Our-website/Copyright-information</code>
+
+                                        This is an added layer to depict Lahar Evacuation Routes:
+                                        <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/lahar-evacuation-routes</code>
+                                        This is an added layer to depict Deep or Fast Flowing Floodway:
+                                        <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/deep-and-or-fast-flowing-floodway</code>
+
+                                        <div id="mapid"></div>
+                                        <script src="js/mapscript.js"></script>
+
+                                    </br>
+                                    </br>
+                                    <div class="tags-share">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul class="tags">
+                                                    <li>Tags:</li>
+                                                    <li><a href="#">maps</a>,</li>
+                                                    <li><a href="#">GIS</a>,</li>
+                                                    <li><a href="#">Flooding</a>,</li>
+                                                    <li><a href="#">Lahars</a>,</li>
+                                                    <li><a href="#">Puget Sound</a>,</li>
+                                                </ul>
+                                            </div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--BEGINS "CONTACT" pop-up button - BOTTOM RIGHT-->
+        <div class="popup-icon">
+          <button id="modBtn" class="modal-btn"><img src="img/contact-icon.png" alt=""></button>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+          <!-- Modal Content -->
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="header-title">Contact <em>Isaac</em></h3>
+              <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+              <div class="col-md-6 col-md-offset-3">
+                <form id="contact" action="" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                          <fieldset>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <button type="submit" id="form-submit" class="btn">Send Message Now</button>
+                          </fieldset>
+                        </div>
+                        <div id="social">
+                          </br>
+                          </br>
+                          <p> Form Under Construction </p>
+                          <a href="https://www.linkedin.com/in/isaac-vanmechelen/" class="fab fa-linkedin-in fa-2x" target="_blank"></a>
+                          <a href="https://www.facebook.com/IsaacV.Photography/" class="fab fa-facebook-f fa-2x" target="_blank"></a>
+                          <a href="https://www.behance.net/vanmeciv" class="fab fa-behance fa-2x" target="_blank"></a>
+                          <a href="https://github.com/vanmeciv" class="fab fa-github fa-2x" target="_blank"></a>
+                          <a href="https://msgtcohort.slack.com" class="fab fa-slack-hash fa-2x" target="_blank"></a>
+                        </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!--ENDS "CONTACT" pop-up button - BOTTOM RIGHT-->
+<!--BEGINS FOOTER-->
+          <footer>
+              <div class="container-fluid">
+                  <div class="col-md-12">
+                      <p>| &copy; 2019 | Designed by
+                        <a href="https://templatemo.com/tm-520-highway" target="_blank">TemplateMo</a>
+                        |</br>| Cloned by Isaac Van Mechelen
+                        <a href="img/Isaac_Van_Mechelen's_Resume.pdf" class="far fa-file-pdf fa-2x" target="_blank" style="margin: .25em; text-decoration: none; color: #fff;">
+                        </a>|
+                      </p>
+                  </div>
+              </div>
+          </footer>
+<!--ENDS FOOTER-->
+
+</body>
+</html>
