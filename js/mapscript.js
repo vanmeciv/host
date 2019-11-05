@@ -7,18 +7,35 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMmdqMmVpMDBnYmczYnBoaHhzbDJybGgifQ.5_1sNMFnGpLHtF5fv_Yxuw'
 }).addTo(mymap);
 
+
 // load GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
   $.getJSON("geoJSON/glaciers.json",function(data){
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data).addTo(mymap);
   });
-// load GeoJSON from an external file http://shpescape.com/mix/uploads/348fe11277684b1eddbe1c813fdc3696.json/ - converted on http://shpescape.com/mix/
-	$.getJSON("geoJSON/floodways.json",function(data){
-		// add GeoJSON layer to the map once the file is loaded
-		L.geoJson(data).addTo(mymap);
-	});
+
 // load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
 	$.getJSON("geoJSON/parks.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data).addTo(mymap);
 		});
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+	$.getJSON("geoJSON/laharEvacRoutes.json",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+		L.geoJson(data).addTo(mymap);
+		});
+
+
+		
+
+// testing glacier selection
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("This is " + e.latlng.toString())
+				.openOn(mymap);
+		}
+
+		mymap.on('click', onMapClick);
