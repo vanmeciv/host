@@ -8,17 +8,57 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 
-// load GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
-  $.getJSON("geoJSON/glaciers.json",function(data){
-    // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(mymap);
-  });
 
-// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+	var states = [{
+		"type": "Feature",
+		"properties": {"party": "Parks"},
+		"geometry": {
+			"type": "Polygon",
+			"coordinates": [[
+				[-104.05, 48.99],
+				[-97.22,  48.98],
+				[-96.58,  45.94],
+				[-104.03, 45.94],
+				[-104.05, 48.99]
+			]]
+		}
+	}, {
+		"type": "Feature",
+		"properties": {"party": "Glaciers"},
+		"geometry": {
+			"type": "Polygon",
+			"coordinates": [[
+				[-109.05, 41.00],
+				[-102.06, 40.99],
+				[-102.03, 36.99],
+				[-109.04, 36.99],
+				[-109.05, 41.00]
+			]]
+		}
+	}];
+	L.geoJSON(states, {
+		style: function(feature) {
+			switch (feature.properties.party) {
+				case 'Parks': return {color: "#ff0000"};
+				case 'Glaciers':   return {color: "#0000ff"};
+			}
+		}
+	}).addTo(mymap);
+
+
+
+	// load Mt. Rainier Glaciers GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
+	  $.getJSON("geoJSON/glaciers.json",function(data){
+	    // add GeoJSON layer to the map once the file is loaded
+	    L.geoJson(data).addTo(mymap);
+	  });
+
+// load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
 	$.getJSON("geoJSON/parks.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data).addTo(mymap);
 		});
+
 // load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
 	$.getJSON("geoJSON/laharEvacRoutes.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
@@ -26,7 +66,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		});
 
 
-		
 
 // testing glacier selection
 		var popup = L.popup();
@@ -37,5 +76,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 				.setContent("This is " + e.latlng.toString())
 				.openOn(mymap);
 		}
+
+
 
 		mymap.on('click', onMapClick);
