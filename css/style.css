@@ -1460,4 +1460,5 @@ footer a:hover {
 
 #mapid {
   height: 45em;
+  z-index: 0;
 }
