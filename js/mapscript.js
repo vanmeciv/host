@@ -42,16 +42,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
-		var arrow = L.polyline([[57, -19], [60, -12]]).addTo(mymap);
-		var arrowHead = L.polylineDecorator(arrow, { patterns: [ {
-		     offset: '100%', repeat: 0,
-		     symbol: L.Symbol.arrowHead ({
-		         pixelSize: 15, polygon: false, pathOptions: {stroke: true}})        }    ]}).addTo(mymap);
-
-
-
-
-
 
 
 // testing glacier selection
