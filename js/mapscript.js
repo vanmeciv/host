@@ -15,17 +15,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	  // add GeoJSON layer to the map once the file is loaded
 	  L.geoJson(data, {
 			style: function(feature){
-				return { color:"#c9dfe3", fillColor:"blue", fillOpacity: .6 };
+				return { color:"#c9dfe3", weight: 1, fillColor:"blue", fillOpacity: .2 };
 			}
 		}).addTo(mymap);
 	});
 
-		// load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+// load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
 	$.getJSON("geoJSON/parks.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
-				return { color:"#a13d2d", weight: .3, fillColor:"red", fillOpacity: .3 };
+				return { color:"#a13d2d", weight: 1, fillColor:"green"};
 			}
 		}).addTo(mymap);
 		});
@@ -35,13 +35,13 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
-				return { color:"#a13d2d", weight: .3, fillColor:"red", fillOpacity: .3 };
+				return { color:"#000", weight: 1, fillColor:"black"};
 			}
 		}).addTo(mymap);
 		});
 
 
-
+	mymap.on('click', onMapClick);
 
 
 
@@ -59,4 +59,4 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
-		mymap.on('click', onMapClick);
+	
