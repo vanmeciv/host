@@ -44,6 +44,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
+
+
+
 // testing glacier selection
 		var popup = L.popup();
 
@@ -53,4 +56,5 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 				.setContent("This is " + e.latlng.toString())
 				.openOn(mymap);
 		}
+
 	mymap.on('click', onMapClick);
