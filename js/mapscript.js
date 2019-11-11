@@ -1,8 +1,8 @@
-var mymap = L.map('mapid').setView([47.19, -122.2], 9);
+var mymap = L.map('mapid').setView([47.10, -122.1], 9);
 
-var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-	maxZoom: 17,
-	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
 	id: 'mapbox.streets',
 	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMmdqMmVpMDBnYmczYnBoaHhzbDJybGgifQ.5_1sNMFnGpLHtF5fv_Yxuw'
 }).addTo(mymap);
@@ -21,7 +21,7 @@ var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 	});
 
 // load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
-	$.getJSON("geoJSON/parks.json",function(data){
+	$.getJSON("geoJSON/rainier-pin.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
@@ -40,8 +40,25 @@ var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 		}).addTo(mymap);
 		});
 
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/floodways.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#006994", weight: .5, fillColor:"blue"};
+				}
+			}).addTo(mymap);
+			});
 
-
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/pierce-county.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#000", weight: .5, fillColor:"black"};
+				}
+			}).addTo(mymap);
+			});
 
 
 // testing glacier selection
