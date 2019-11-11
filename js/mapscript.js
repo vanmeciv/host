@@ -21,7 +21,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	});
 
 // load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
-	$.getJSON("geoJSON/parks.json",function(data){
+	$.getJSON("geoJSON/rainier-pin.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
@@ -50,7 +50,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 			}).addTo(mymap);
 			});
 
-
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/pierce-county.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#000", weight: .5, fillColor:"black"};
+				}
+			}).addTo(mymap);
+			});
 
 
 // testing glacier selection
