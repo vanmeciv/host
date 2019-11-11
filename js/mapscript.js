@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([47.19, -122.2], 9);
+var mymap = L.map('mapid').setView([47.10, -122.1], 9);
 
 var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 	maxZoom: 17,
@@ -40,6 +40,15 @@ var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 		}).addTo(mymap);
 		});
 
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/floodways.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#c9dfe3", weight: 2, fillColor:"blue"};
+				}
+			}).addTo(mymap);
+			});
 
 
 
