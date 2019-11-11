@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "type": "FeatureCollection",
   "features": [
@@ -60,3 +61,67 @@
     }
   ]
 }
+=======
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.71628673108933,
+          46.878525641571116
+        ]
+      },
+      "properties": {
+        "name": "Mt. Rainier National Park",
+        "description": "Ascending to 14,410 feet above sea level, Mount Rainier stands as an icon in the Washington landscape. An active volcano, Mount Rainier is the most glaciated peak in the contiguous U.S.A., spawning five major rivers. Subalpine wildflower meadows ring the icy volcano while ancient forest cloaks Mount Rainier’s lower slopes.",
+        "OBJECTID": 330,
+        "PropertyID": 263,
+        "ParkType": "Park",
+        "ParkClass": "Regional",
+        "Address": "Tahoma Woods, Star Route",
+        "PostalCity": "Ashford",
+        "ZIPCode": 98304,
+        "Owner": "U.S. Federal Government",
+        "Manager": "U.S. Federal Government",
+        "ParkHours": "Varies with Season",
+        "AcresImproved": 0,
+        "AcresUnimproved": 199580,
+        "ParkWebLink": "http://www.nps.gov/MORA/index.htm",
+        "IsPublicAccessible": 1,
+        "Maplabel": "Mt. Rainier National Park",
+        "GISAcres": 199580.26893772,
+        "RESTROOM": "Yes",
+        "ADACOMPLY": "Yes",
+        "PARKING": "Yes",
+        "PAVED_TRAIL": "Yes",
+        "UNPAVED_TRAIL": "Yes",
+        "TRAILHEAD": "Yes",
+        "COMMUNITY_CENTER": "No",
+        "PICNIC": "Yes",
+        "PLAYGROUND": "No",
+        "DOG_PARK": "No",
+        "BASEBALL": "No",
+        "BASKETBALL": "No",
+        "MULTIPURPOSE": "No",
+        "GOLF": "No",
+        "BEACH": "No",
+        "FISHING": "Yes",
+        "BOAT_LAUNCH": "Yes",
+        "SKATE": "No",
+        "TENNIS": "No",
+        "BMX": "No",
+        "CLIMBING": "No",
+        "EQUESTRIAN": "No",
+        "DISC_GOLF": "No",
+        "ICE_RINK": "No",
+        "QTR_MIDGET_TRACK": "No",
+        "VisibleInApp": "Yes",
+        "Camping": "Yes"
+      }
+    }
+  ]
+}
+>>>>>>> 862c129e4ca16d680d1223cbc8eac8a22186d77e
