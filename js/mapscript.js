@@ -1,4 +1,4 @@
-var mymap = L.map('mapid').setView([47.19, -122.2], 9);
+var mymap = L.map('mapid').setView([47.10, -122.1], 9);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -15,17 +15,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	  // add GeoJSON layer to the map once the file is loaded
 	  L.geoJson(data, {
 			style: function(feature){
-				return { color:"#c9dfe3", weight: 1, fillColor:"blue", fillOpacity: .2 };
+				return { color:"#c9dfe3", weight: 2, fillColor:"blue", fillOpacity: .3 };
 			}
 		}).addTo(mymap);
 	});
 
 // load Pierce County Parks GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
-	$.getJSON("geoJSON/parks.json",function(data){
+	$.getJSON("geoJSON/rainier-pin.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
-				return { color:"#a13d2d", weight: 1, fillColor:"green"};
+				return { color:"#a13d2d", weight: 3, fillColor:"green",};
 			}
 		}).addTo(mymap);
 		});
@@ -35,13 +35,23 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
 			style: function(feature){
-				return { color:"#000", weight: 1, fillColor:"black"};
+				return { color:"#000", weight: 2, fillColor:"black"};
 			}
 		}).addTo(mymap);
 		});
 
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/2019-flood-review.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#006994", weight: .5, fillColor:"blue"};
+				}
+			}).addTo(mymap);
+			});
 
 
+<<<<<<< HEAD
 
 
 
@@ -58,3 +68,14 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		}
 
 	mymap.on('click', onMapClick);
+=======
+// load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/floodways.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#000", weight: .5, fillColor:"black"};
+				}
+			}).addTo(mymap);
+			});
+>>>>>>> ccb76c7bbbc87361dcd6a413180618cb23e761f6
