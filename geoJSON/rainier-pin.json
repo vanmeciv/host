@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "type": "FeatureCollection",
   "features": [
@@ -61,7 +60,6 @@
     }
   ]
 }
-=======
 {
   "type": "FeatureCollection",
   "features": [
@@ -124,4 +122,3 @@
     }
   ]
 }
->>>>>>> 862c129e4ca16d680d1223cbc8eac8a22186d77e
