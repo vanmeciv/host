@@ -41,7 +41,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		});
 
 // load GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
-		$.getJSON("geoJSON/floodways.json",function(data){
+		$.getJSON("geoJSON/2019-flood-review.json",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			L.geoJson(data, {
 				style: function(feature){
