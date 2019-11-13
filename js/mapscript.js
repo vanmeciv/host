@@ -31,7 +31,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 				layer.bindPopup(
 				"This is " +
 				feature.properties.NAME
-		);
+				);
 			}
 		}).addTo(mymap);
 	});
@@ -92,7 +92,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 		function onMapClick(e) {
 			popup
-		  .openOn(mymap);
+				.setLatLng(e.latlng)
+				.setContent("This is " + e.latlng.toString())
+				.openOn(mymap);
 		}
 
 	mymap.on('click', onMapClick);
