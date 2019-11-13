@@ -1,0 +1,11 @@
+var arrow = L.polyline([[-121.77946583815317, 46.93172277132278], [-121.7799464801367, 46.93371673948721]]).addTo(mymap);
+
+var arrowHead = L.polylineDecorator(arrow, {
+  patterns: [
+    {
+      offset: '100%',
+      repeat: 0,
+      symbol: L.Symbol.arrowHead({pixelSize: 15, polygon: false, pathOptions: {stroke: true}})
+    }
+    ]
+}).addTo(mymap);

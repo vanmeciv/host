@@ -1,0 +1,23 @@
+$.getJSON("Out_TRI.json", function(geojson) {
+  var geojsonLayer = L.geoJson(geojson, {
+    style: function(feature) {
+      return {
+        color: "turquoise",
+        fillOpacity: 0.5
+      };
+    },
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup(
+        "<strong>" +
+          "NAME: " +
+          "</strong>" +
+          feature.properties.Business_N +
+          "<strong><br/>" +
+          "PROPERTY TYPE: " +
+          "</strong>" +
+          feature.properties.Landuse_De
+      );
+    }
+  }).addTo(map);
+  controlLayers.addOverlay(geojsonLayer, "Parcels outside of buffers");
+});

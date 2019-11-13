@@ -1,0 +1,13 @@
+.map {
+    width: 100%;
+}
+
+
+.full-screen-portfolio .container-fluid, .full-screen-portfolio .col-md-4-map {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+@media (min-width: 992px)
+.col-md-4-map {
+    width: 33.333333%;
+}

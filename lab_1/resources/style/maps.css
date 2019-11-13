@@ -1,0 +1,23 @@
+/*BEGIN style for iFrame & Maps on Contact page*/
+#main {
+    max-width: 940px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+iframe {
+      width: 49%;
+      height: 750px;
+      border: none;
+    }
+/*created from https://www.tacoma.uw.edu/map/*/
+#ibox-uwtmap {
+  float: left;
+  width: 100%;
+}
+/*created from https://www.maps.ie/create-google-map/*/
+#ibox-google {
+  float: right;
+  width: 100%;
+}
+/*END style for iFrame & Maps on Contact page*/
