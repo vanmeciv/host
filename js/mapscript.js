@@ -8,37 +8,34 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 
-// load Mt. Rainier Glaciers GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
+
+// Loads Mt. Rainier Marker from local file
+  	$.getJSON("geoJSON/pierce-county.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#a13d2d", weight: .5, fillColor:"green", fillOpacity: 0 };
+				}
+			}).addTo(mymap);
+		});
+
+
+// loads Glaciers GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
   $.getJSON("geoJSON/glaciers.json",function(data){
 	  // add GeoJSON layer to the map once the file is loaded
 	  L.geoJson(data, {
-			style: function(feature){
+			style: function (feature){
 				return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 1 };
 			},
 			onEachFeature: function(feature, layer) {
-      layer.bindPopup(
-          "This is " +
-          feature.properties.NAME
-      );
-		}
+				layer.bindPopup(
+				"This is " +
+				feature.properties.NAME
+		);
+			}
 		}).addTo(mymap);
 	});
 
-	// Loads Mt. Rainier Market from local file
-	  	$.getJSON("geoJSON/rainier-pin.json",function(data){
-				// add GeoJSON layer to the map once the file is loaded
-				L.geoJson(data, {
-					style: function(feature){
-						return { color:"#a13d2d", weight: .5, fillColor:"green",};
-					},
-					onEachFeature: function(feature, marker) {
-		      marker.bindPopup(
-		          "This is " +
-		          feature.properties.name
-		      );
-				}
-				}).addTo(mymap);
-			});
 
 // Loads Evac Routes from local file or from an external file at http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
 	$.getJSON("geoJSON/laharEvacRoutes.json",function(data){
@@ -48,10 +45,27 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 				return { color:"#000", weight: 2, fillColor:"black"};
 			}
 		}).addTo(mymap);
+		});
+
+
+// Loads Evac Routes from local file or from an external file at http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+	$.getJSON("geoJSON/rainier-pin.json",function(data){
+		// add GeoJSON layer to the map once the file is loaded
+		L.geoJson(data, {
+			style: function(feature){
+				return { color:"#000", weight: 2, fillColor:"black"};
+			},
+			onEachFeature: function(feature, marker) {
+				marker.bindPopup(
+				"This is " +
+				feature.properties.name
+		);
+			}
+		}).addTo(mymap);
 	});
 
 
-// loads GeoJSON from an external file http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+// loads Floodways from an internal file
 		$.getJSON("geoJSON/floodways.json",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			L.geoJson(data, {
@@ -59,24 +73,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 					return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 3 };
 				}
 			}).addTo(mymap);
-		});
+			});
 
 
-// Loads Mt. Rainier Market from local file
-  	$.getJSON("geoJSON/pierce-county.json",function(data){
-			// add GeoJSON layer to the map once the file is loaded
-			L.geoJson(data, {
-				style: function(feature){
-					return { color:"#a13d2d", weight: .5, fillColor:"green", fillOpacity: 0 };
-				},
-				onEachFeature: function(feature, marker) {
-				marker.bindPopup(
-						"This is " +
-						feature.properties.JURNM
-				);
-			}
-			}).addTo(mymap);
-		});
+
 
 
 //popup on each JSON Layer (https://gis.stackexchange.com/questions/229723/displaying-properties-of-geojson-in-popup-on-leaflet/229743)
@@ -92,9 +92,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 		function onMapClick(e) {
 			popup
-				.setLatLng(e.latlng)
-				.setContent("This is " + e.latlng.toString())
-				.openOn(mymap);
+		  .openOn(mymap);
 		}
 
 	mymap.on('click', onMapClick);
