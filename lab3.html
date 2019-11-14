@@ -17,6 +17,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/light-box.css">
         <link rel="stylesheet" href="css/style.css">
+
 <!-- fontAwesome Kit -->
         <script src="https://kit.fontawesome.com/f198f69782.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -32,15 +33,10 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
 <!--BEGIN Leaflet CSS & Script-->
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin=""/>
+        <link rel="stylesheet" href="leaflet/leaflet.css" />
+        <script src="leaflet/leaflet.js"></script>
 
-        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-        crossorigin=""></script>
-
-
+        <script src="Leaflet.PolylineDecorator-master/dist/leaflet.polylineDecorator.js"></script>
 <!--END Leaflet CSS & Script-->
     </head>
 
@@ -97,24 +93,26 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                     </br>
                                     </br>
-                                        Below is a depiction of Washington State Flood Hazard areas:
+                                        Below is a depiction of Washington State Fast Flowing Flood Hazard areas in relation to Mt. Rainier Glaciers. Additional, there is a data layer intended to display the lahar evacuation routes within Pierce County.
 
                                       </br>
                                       </br>
 
-                                        This is an added layer to depict Lahar Evacuation Routes based on Carbon and Puyallup River:
+                                        This is the origin of the added layer to depict Lahar Evacuation Routes based on Carbon and Puyallup River:
                                         <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/lahar-evacuation-routes</code>
 
                                       </br>
                                       </br>
 
-                                        This is an added layer to depict Deep or Fast Flowing Floodways in Pierce County on the south side of the Narrows Bridge:
+                                        This is the origin of the added layer to depict Deep or Fast Flowing Floodways in Pierce County on the south side of the Narrows Bridge:
                                         <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/deep-and-or-fast-flowing-floodway</code>
 
+                                        In order to fit the file into a Github upload, it required removing all JSON data from the north side of the bridge and Lake Tapps.
+
                                       </br>
                                       </br>
 
-                                        This is an added layer to depict Pierce County Parks:
+                                        This is the origin of the added layer to depict Mt. Rainier Nat'l Park with a marker:
                                         <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/parks-polygons</code>
 
                                         <div id="mapid"></div>
@@ -123,11 +121,6 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       </br>
                                       </br>
 
-                                        <code>https://waecy.maps.arcgis.com/home/webmap/viewer.html?webmap=145ac46173e648a592645fe6426ac7ba</code>
-                                        & Copyright Permissions:
-                                        <code>https://ecology.wa.gov/About-us/Accountability-transparency/Our-website/Copyright-information</code>
-
-                                        w/ plugins for arrows: https://github.com/bbecquet/Leaflet.PolylineDecorator
 
                                     </br>
                                     </br>
