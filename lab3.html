@@ -93,7 +93,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                     </br>
                                     </br>
-                                        Below is a depiction of Washington State Fast Flowing Flood Hazard areas in relation to Mt. Rainier Glaciers. Additional, there is a data layer intended to display the lahar evacuation routes within Pierce County.
+                                        Below is a depiction of Washington State Fast Flowing Flood Hazard areas in relation to Mt. Rainier Glaciers. There is a data layer intended to display the lahar evacuation routes within Pierce County. However, I haven't been able to get the <code>Leaflet.PolylineDecorator-master</code> plugin to display arrow heads on the lines.
 
                                       </br>
                                       </br>
@@ -107,13 +107,19 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                         This is the origin of the added layer to depict Deep or Fast Flowing Floodways in Pierce County on the south side of the Narrows Bridge:
                                         <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/deep-and-or-fast-flowing-floodway</code>
 
-                                        In order to fit the file into a Github upload, it required removing all JSON data from the north side of the bridge and Lake Tapps.
+                                        In order to fit the file into a Github upload, it required removing all JSON data from the north side of the bridge and Lake Tapps. I felt removing Lake Tapps, was justified for two reasons. One, it's an obvious runoff for flooding and two, Lake Kapowsin, Tanwax Lake, Clear Lake, and Ohop Lake, were not included in the original data either.
 
                                       </br>
                                       </br>
 
                                         This is the origin of the added layer to depict Mt. Rainier Nat'l Park with a marker:
                                         <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/parks-polygons</code>
+
+                                      </br>
+                                      </br>
+
+                                        This is the origin of the added layer to depict the outline of Pierce County. Originally, I tried used the "Boundary Line" data, but it created some issues when trying to make popups, but there isn't a data propety for "Pierce County" like there is for the polygon. It created issues when trying to order the z-index of the map layers and creating priorities with popups.
+                                        <code>https://gisdata-piercecowa.opendata.arcgis.com/datasets/pierce-county-boundary-polygon</code>
 
                                         <div id="mapid"></div>
                                         <script src="js/mapscript.js"></script>
