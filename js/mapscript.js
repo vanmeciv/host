@@ -4,7 +4,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	id: 'mapbox.streets',
-	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMmdqMmVpMDBnYmczYnBoaHhzbDJybGgifQ.5_1sNMFnGpLHtF5fv_Yxuw'
+	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g'
 }).addTo(mymap);
 
 
@@ -20,21 +20,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		});
 
 
-// loads Glaciers GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
-  $.getJSON("geoJSON/glaciers.json",function(data){
-	  // add GeoJSON layer to the map once the file is loaded
-	  L.geoJson(data, {
-			style: function (feature){
-				return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 1 };
-			},
-			onEachFeature: function(feature, layer) {
-				layer.bindPopup(
-				"This is " +
-				feature.properties.NAME
-				);
-			}
-		}).addTo(mymap);
-	});
 
 
 // Loads Evac Routes from local file or from an external file at http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
@@ -48,22 +33,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		});
 
 
-// Loads Evac Routes from local file or from an external file at http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
-	$.getJSON("geoJSON/rainier-pin.json",function(data){
-		// add GeoJSON layer to the map once the file is loaded
-		L.geoJson(data, {
-			style: function(feature){
-				return { color:"#000", weight: 2, fillColor:"black"};
-			},
-			onEachFeature: function(feature, marker) {
-				marker.bindPopup(
-				"This is " +
-				feature.properties.name
-		);
-			}
-		}).addTo(mymap);
-	});
-
 
 // loads Floodways from an internal file
 		$.getJSON("geoJSON/floodways.json",function(data){
@@ -75,6 +44,38 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 			}).addTo(mymap);
 			});
 
+// Loads Evac Routes from local file or from an external file at http://shpescape.com/mix/uploads/56c45ffcc7ab7606844b95e0d3579920.json/ - converted on http://shpescape.com/mix/
+		$.getJSON("geoJSON/rainier-pin.json",function(data){
+			// add GeoJSON layer to the map once the file is loaded
+			L.geoJson(data, {
+				style: function(feature){
+					return { color:"#000", weight: 2, fillColor:"black"};
+				},
+				onEachFeature: function(feature, marker) {
+					marker.bindPopup(
+					"This is " +
+					feature.properties.name
+					);
+				}
+			}).addTo(mymap);
+		});
+
+
+// loads Glaciers GeoJSON from an external file http://shpescape.com/mix/uploads/9e9490fc30b6045dc0d003db2680f381.json/ - converted on http://shpescape.com/mix/
+	  $.getJSON("geoJSON/glaciers.json",function(data){
+		  // add GeoJSON layer to the map once the file is loaded
+		  L.geoJson(data, {
+				style: function (feature){
+					return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 1 };
+				},
+				onEachFeature: function(feature, layer) {
+					layer.bindPopup(
+							"This is " +
+							feature.properties.NAME
+							);
+				}
+			}).addTo(mymap);
+		});
 
 
 
@@ -90,11 +91,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // testing glacier selection
 	var popup = L.popup();
 
-		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("This is " + e.latlng.toString())
-				.openOn(mymap);
-		}
+		// function onMapClick(e) {
+		// 	popup
+		// 		.setLatLng(e.latlng)
+		// 		.setContent("This is " + e.latlng.toString())
+		// 		.openOn(mymap);
+		// }
 
-	mymap.on('click', onMapClick);
+//	mymap.on('click', onMapClick);
