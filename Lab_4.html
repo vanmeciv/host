@@ -27,6 +27,18 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+
+<!--BEGIN Leaflet CSS & Script-->
+
+        <link rel="stylesheet" href="leaflet/leaflet.css" />
+        <script src="leaflet/leaflet.js"></script>
+
+
+<!--END Leaflet CSS & Script-->
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+          <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+
     </head>
 
 <body>
@@ -76,8 +88,8 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                             <div class="single-blog-post">
 
                                 <div class="text-content">
-                                    <h2>Week 5 Reading Response</h2>
-                                    <span><a href="#">28 October 2019</a></span>
+                                    <h2>Lab 4</h2>
+                                    <span><a href="#">26 November 2019</a></span>
                                     <p>
 
                                       Dynamic updating feeds:
@@ -86,6 +98,14 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                       Use Leaflet Mapping framework since familiar
                                       One map must be earthquake data from USGS (GeoJSON) - https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+
+                                      <div id="mapid"></div>
+                                      <script src="js/leaflet-map.js"></script>
+
+                                      <br>
+                                      <br>
+                                      <br>
+
 
                                       Include a brief description of the map & details about the dataset being displayed
                                        Be an interactive map initially zoomed to the entire globe
@@ -98,6 +118,8 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                        Open a details link in a new tab when the user clicks an earthquake’s details
 
 
+                                      <div id="mapbox"></div>
+                                      <script src="js/earthquake.js"></script>
 
                                       USE this link as a relative path (past 7 days):
                                       https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson
