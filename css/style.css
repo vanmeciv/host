@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 /*
 
 Highway Template
@@ -2893,4 +2893,11 @@ footer a:hover {
   height: 45em;
   z-index: 0;
 }
->>>>>>> e3e7c8b25884ce78aac99c427c0649e45f110e65
+#leaflet {
+  height: 45em;
+  z-index: 0;
+}
+#map {
+  height: 45vh;
+  z-index: 0;
+}
