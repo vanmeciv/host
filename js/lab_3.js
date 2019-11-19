@@ -1,10 +1,10 @@
-var mymap = L.map('mapid').setView([47.10, -122.1], 9);
+var mymap = L.map('lab-three').setView([47.10, -122.1], 9);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
 	id: 'mapbox.streets',
-	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMzBxc3l3cDAxOWEzbXJ6NnNtYjJtM2QifQ.hMUMXLCYuJ8i01uCnvWn6g'
+	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g'
 }).addTo(mymap);
 
 
