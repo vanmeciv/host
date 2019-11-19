@@ -2894,23 +2894,13 @@ footer a:hover {
   z-index: 0;
 }
 
-#leaflet {
-  height: 45em;
-  z-index: 0;
-}
 
-#map {
+#labFourLeaflet {
   height: 45vh;
   z-index: 0;
 }
 
-
-#lab4Leaflet {
-  height: 45vh;
-  z-index: 0;
-}
-
-#lab4Earthquake {
+#labFourEarthquake {
   height: 45vh;
   z-index: 0;
 }
