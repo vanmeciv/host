@@ -94,20 +94,23 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                     <p>
 
                                       Dynamic updating feeds:
+                                      <br>
+                                      https://canvas.uw.edu/courses/1324979/files/59763755/download?wrap=1
+                                      <br>
+                                      <!-- Add both maps to single page
 
-                                      Add both maps to single page
+                                      Use Leaflet Mapping framework since familiar -->
 
-                                      Use Leaflet Mapping framework since familiar
-                                      One map must be earthquake data from USGS (GeoJSON) - https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+                                      <div id="labFourEarthquake"></div>
+                                      <script src="js/labFourEarthquake.js"></script>
 
-                                      <div id="mapid"></div>
-                                      <script src="js/leaflet-map.js"></script>
 
                                       <br>
                                       <br>
                                       <br>
-
-
+https://docs.mapbox.com/mapbox-gl-js/examples/
+https://docs.mapbox.com/mapbox-gl-js/example/cluster-html/
+<br>
                                       Include a brief description of the map & details about the dataset being displayed
                                        Be an interactive map initially zoomed to the entire globe
                                        Have pan/zoom functionality
@@ -118,14 +121,15 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       the earthquake
                                        Open a details link in a new tab when the user clicks an earthquake’s details
 
+                                      <!-- One map must be earthquake data from USGS (GeoJSON) - https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php -->
 
-                                      <div id="map"></div>
-                                      <script src="js/earthquake.js"></script>
+
 
                                       USE this link as a relative path (past 7 days):
                                       https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_week.geojson
 
-
+                                      <div id="labFourLeaflet"></div>
+                                      <script src="js/labFourLeaflet.js"></script>
 
                                       One map must use Mapbox GL as the mapping framework (any data format)
                                       Be an interactive map initially zoomed and centered on an appropriate level for the
