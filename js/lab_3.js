@@ -7,12 +7,19 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	accessToken: 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g'
 }).addTo(mymap);
 
+mymap.createPane("glaciersPane");
+mymap.createPane("rainierPane");
+mymap.createPane("floodwaysPane");
+mymap.createPane("laharEvacRoutesPane");
+mymap.createPane("pierceCountyPane");
+
 
 
 // Loads Mt. Rainier Marker from local file
   	$.getJSON("geoJSON/pierce-county.json",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			L.geoJson(data, {
+				pane: "pierceCountyPane",
 				style: function(feature){
 					return { color:"#a13d2d", weight: .5, fillColor:"green", fillOpacity: 0 };
 				}
@@ -26,6 +33,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	$.getJSON("geoJSON/laharEvacRoutes.json",function(data){
 		// add GeoJSON layer to the map once the file is loaded
 		L.geoJson(data, {
+			pane: "laharEvacRoutesPane",
 			style: function(feature){
 				return { color:"#000", weight: 2, fillColor:"black"};
 			}
@@ -38,6 +46,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		$.getJSON("geoJSON/floodways.json",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			L.geoJson(data, {
+				pane: "floodwaysPane",
 				style: function(feature){
 					return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 3 };
 				}
@@ -48,6 +57,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 		$.getJSON("geoJSON/rainier-pin.json",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			L.geoJson(data, {
+				pane: "rainierPane",
 				style: function(feature){
 					return { color:"#000", weight: 2, fillColor:"black"};
 				},
@@ -65,6 +75,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	  $.getJSON("geoJSON/glaciers.json",function(data){
 		  // add GeoJSON layer to the map once the file is loaded
 		  L.geoJson(data, {
+				pane: "glaciersPane",
 				style: function (feature){
 					return { color:"#aad3e9", weight: 1, fillColor:"blue", fillOpacity: 1 };
 				},
