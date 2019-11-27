@@ -2895,7 +2895,7 @@ footer a:hover {
 }
 
 
-#labFourLeaflet {
+#labFourMeteorites {
   height: 45vh;
   z-index: 0;
 }
@@ -2903,4 +2903,11 @@ footer a:hover {
 #labFourEarthquake {
   height: 45vh;
   z-index: 0;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font-family: 'Kanit', sans-serif;
+  font-size: .9em
+  font-color: #000
 }

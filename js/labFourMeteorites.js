@@ -2,7 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY
 var map2 = new mapboxgl.Map({
 container: 'labFourMeteorites',
 center: [-122.4443, 47.2529],
-zoom: 2,
+zoom: 3,
+pitch: 55,
+bearing: 45,
 attributionControl: false,
 style: 'mapbox://styles/isaacv/ck3f64eev0mam1cpd002nl27y'
 });
@@ -56,4 +58,20 @@ map2.on('click', 'meteors', function (e) {
               .setLngLat(coordinates)
               .setHTML(description)
               .addTo(map2);
+});
+
+
+// Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+map2.on('click', 'meteors', function (e) {
+map2.flyTo({center: e.features[0].geometry.coordinates});
+});
+
+// Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+map2.on('mouseenter', 'meteors', function () {
+map2.getCanvas().style.cursor = 'pointer';
+});
+
+// Change it back to a pointer when it leaves.
+map2.on('mouseleave', 'meteors', function () {
+map2.getCanvas().style.cursor = '';
 });
