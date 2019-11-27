@@ -2894,6 +2894,11 @@ footer a:hover {
   z-index: 0;
 }
 
+#map {
+  height: 45em;
+  z-index: 0;
+}
+
 
 #labFourMeteorites {
   height: 45vh;
@@ -2906,8 +2911,24 @@ footer a:hover {
 }
 
 .mapboxgl-popup {
-  max-width: 400px;
+  max-width: .15em;
   font-family: 'Kanit', sans-serif;
-  font-size: .9em
-  font-color: #000
+  font-size: .9em;
+  color: #000;
+}
+
+
+#fit {
+  display: block;
+  position: relative;
+  margin: 0px auto;
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #000;
 }

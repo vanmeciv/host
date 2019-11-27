@@ -10,24 +10,6 @@ style: 'mapbox://styles/isaacv/ck3f64eev0mam1cpd002nl27y'
 });
 map2.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
-//PREVIOUS CODE
-// var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson';
-// map.on('load', function () {
-// window.setInterval(function() {
-// map.getSource('drone').setData(url);
-// }, 2000);
-//
-// map.addSource('drone', { type: 'geojson', data: url });
-// map.addLayer({
-// "id": "drone",
-// "type": "symbol",
-// "source": "drone",
-// "layout": {
-// "icon-image": "rocket-15"
-// }
-// });
-// });
-
 
 
 //on map load, run function to load the geojson
@@ -45,14 +27,19 @@ map2.on('load', function(){
     });
 });
 
+
+
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
 map2.on('click', 'meteors', function (e) {
+      // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+      map2.flyTo({center: e.features[0].geometry.coordinates});
       //1. set the coordinates of the popup
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
       // var description = e.features[0].properties.title;
-      var description = "<h3>Meteorite"+"</h3>"+"<p>Name: " + e.features[0].properties.name + "<br>Date of Fall: " + e.features[0].properties.year + "<br> Size: " + e.features[0].properties.mass + "g" + "</p>";
+      var year = e.features[0].properties.year.slice(0,4);
+      var description = "<h4>Meteorite</h4><p>Name: " + e.features[0].properties.name + "<br>Year of Fall: " + year + "<br> Size: " + e.features[0].properties.mass + "g </p>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)
@@ -60,11 +47,14 @@ map2.on('click', 'meteors', function (e) {
               .addTo(map2);
 });
 
+// style: function(feature){
+//   var tsunami,
+//     wave = feature.properties.tsunami;
+//       if (wave === 0) polyColor = "#99d594";
+//       else polyColor = "ffffff";
+//     return {color: "#ffffff", weight: 1.5, fillColor: polyColor, fillOpacity: 0.6};
+// }
 
-// Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-map2.on('click', 'meteors', function (e) {
-map2.flyTo({center: e.features[0].geometry.coordinates});
-});
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
 map2.on('mouseenter', 'meteors', function () {
@@ -74,4 +64,14 @@ map2.getCanvas().style.cursor = 'pointer';
 // Change it back to a pointer when it leaves.
 map2.on('mouseleave', 'meteors', function () {
 map2.getCanvas().style.cursor = '';
+});
+
+document.getElementById('fit').addEventListener('click', function() {
+map2.fitBounds([[
+32.958984,
+-5.353521
+], [
+43.50585,
+5.615985
+]]);
 });

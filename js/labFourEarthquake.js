@@ -54,7 +54,7 @@ map1.on('click', 'equakes', function (e) {
       //2. create the information that will display in the popup
       // var description = e.features[0].properties.title;
       var depth = e.features[0].geometry.depth;
-      var description = "<h3>"+e.features[0].properties.title+"</h3>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
+      var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)
