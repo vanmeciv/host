@@ -26,7 +26,7 @@ map2.on('load', function(){
       "type":"symbol",
       "source":"meteorites",
       "layout": {
-          "icon-image": "earthquake",
+          "icon-image": "fire-station-11",
           "icon-size":1.5,
       },
       "paint": {}
