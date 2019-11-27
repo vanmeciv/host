@@ -20,7 +20,7 @@ map2.on('load', function(){
         "data": "https://data.nasa.gov/resource/gh4g-9sfh.geojson"
     });
 
-    // add the earthquakes to the map
+    // add the icons to the map
     map2.addLayer({
       "id":"meteors",
       "type":"symbol",
