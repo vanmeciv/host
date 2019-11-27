@@ -35,7 +35,7 @@ map1.on('load', function(){
         "type": "geojson",
         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
     });
-    //add the earthquakes to the map
+    //add the icons to the map
     map1.addLayer({
       "id":"equakes",
       "type":"circle",
