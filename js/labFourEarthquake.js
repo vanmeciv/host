@@ -41,7 +41,7 @@ map1.on('load', function(){
       "type":"symbol",
       "source":"earthquakes",
       "layout": {
-          "icon-image": "earthquake",
+          "icon-image": "fire-station-11",
           "icon-size":1.5,
       },
       "paint": {}
