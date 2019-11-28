@@ -20,7 +20,7 @@ map.addSource('earthquakes', {
       if (error) throw error;
       map.addImage('quake', image);
       map.addLayer({
-          "id": "equakes",
+          "id": "Earthquakes",
           "type": "symbol",
           "source": "earthquakes",
           "layout": {
@@ -36,7 +36,7 @@ type: 'vector',
 url: 'mapbox://mapbox.mapbox-terrain-v2'
 });
 map.addLayer({
-'id': 'contours',
+'id': 'Contours',
 'type': 'line',
 'source': 'contours',
 'source-layer': 'contour',
@@ -52,7 +52,7 @@ map.addLayer({
 });
 });
 
-var toggleableLayerIds = [ 'Contour Lines', 'Earthquakes' ];
+var toggleableLayerIds = [ 'Contours', 'Earthquakes' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
 var id = toggleableLayerIds[i];
@@ -84,7 +84,7 @@ layers.appendChild(link);
 
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
-map.on('click', 'equakes', function (e) {
+map.on('click', 'Earthquakes', function (e) {
       //1. set the coordinates of the popup
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
@@ -100,17 +100,17 @@ map.on('click', 'equakes', function (e) {
 
 
 // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-map.on('click', 'equakes', function (e) {
+map.on('click', 'Earthquakes', function (e) {
 map.flyTo({center: e.features[0].geometry.coordinates});
 });
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
-map.on('mouseenter', 'equakes', function () {
+map.on('mouseenter', 'Earthquakes', function () {
 map.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map.on('mouseleave', 'equakes', function () {
+map.on('mouseleave', 'Earthquakes', function () {
 map.getCanvas().style.cursor = '';
 });
 
