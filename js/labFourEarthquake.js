@@ -52,7 +52,7 @@ map.addLayer({
 });
 });
 
-var toggleableLayerIds = [ 'contours', 'equakes' ];
+var toggleableLayerIds = [ 'Contour Lines', 'Earthquakes' ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
 var id = toggleableLayerIds[i];
