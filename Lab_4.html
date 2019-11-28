@@ -94,7 +94,52 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                     <p>
                                       <h2>Dynamically Updating GeoJSON feeds:</h2>
                                       <h3>Earthquakes Magnitude > 2.5 from Past Week:</h3>
-                                      <div id="labFourEarthquake"></div>
+
+                                      <div id="map"></div>
+                                      <style>
+                                      #layerToggleMenu {
+                                      background: #fff;
+                                      position: absolute;
+                                      z-index: 1;
+                                      top: 9em;
+                                      right: 35px;
+                                      border-radius: 3px;
+                                      width: 120px;
+                                      border: 1px solid rgba(0,0,0,0.4);
+                                      font-family: 'Open Sans', sans-serif;
+                                      }
+
+                                      #layerToggleMenu a {
+                                      font-size: 13px;
+                                      color: #404040;
+                                      display: block;
+                                      margin: 0;
+                                      padding: 0;
+                                      padding: 10px;
+                                      text-decoration: none;
+                                      border-bottom: 1px solid rgba(0,0,0,0.25);
+                                      text-align: center;
+                                      }
+
+                                      #layerToggleMenu a:last-child {
+                                      border: none;
+                                      }
+
+                                      #layerToggleMenu a:hover {
+                                      background-color: #f8f8f8;
+                                      color: #404040;
+                                      }
+
+                                      #layerToggleMenu a.active {
+                                      background-color: #3887be;
+                                      color: #ffffff;
+                                      }
+
+                                      #layerToggleMenu a.active:hover {
+                                      background: #3074a4;
+                                      }
+                                      </style>
+                                      <nav id="layerToggleMenu"></nav>
                                       <script src="js/labFourEarthquake.js"></script>
                                       <br>
                                       <br>
@@ -103,6 +148,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       The icons are portraying a live data feed layer pulled from the USGS website. </p>
                                       <br>
                                       <!-- <br>
+                                      https://hub.arcgis.com/datasets/GIS-For-Schools::volcanoes-and-plate-tectonics?geometry=-76.105%2C-45.819%2C-24.777%2C57.899
                                       https://docs.mapbox.com/mapbox-gl-js/examples/
                                       https://docs.mapbox.com/mapbox-gl-js/example/cluster-html/
                                       <br>
