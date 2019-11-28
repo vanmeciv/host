@@ -73,6 +73,7 @@ map2.on('mouseleave', 'meteors', function () {
 map2.getCanvas().style.cursor = '';
 });
 
+// Reset the extent of the map to the original center/zoom (Button Click)
 document.getElementById('fit').addEventListener('click', function() {
 map2.fitBounds([[
 32.958984,
