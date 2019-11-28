@@ -1,10 +1,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
-zoom: 15,
-center: [-71.97722138410576, -13.517379300798098]
+center: [-122.4443, 47.2529],
+zoom: 1,
+attributionControl: false,
+style: 'mapbox://styles/isaacv/ck2wpjhhk0nr31dmrnv8v1p9a'
 });
+map.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
 map.on('load', function () {
 
