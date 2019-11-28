@@ -8,52 +8,15 @@ style: 'mapbox://styles/isaacv/ck2wpjhhk0nr31dmrnv8v1p9a'
 });
 map1.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
-//PREVIOUS CODE
-// var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson';
-// map.on('load', function () {
-// window.setInterval(function() {
-// map.getSource('drone').setData(url);
-// }, 2000);
-//
-// map.addSource('drone', { type: 'geojson', data: url });
-// map.addLayer({
-// "id": "drone",
-// "type": "symbol",
-// "source": "drone",
-// "layout": {
-// "icon-image": "rocket-15"
-// }
-// });
-// });
 
-
-
-// //on map load, run function to load the geojson
-// map1.on('load', function(){
-//   //add a source layer for earthquakes
-//   map1.addSource('earthquakes', {
-//         "type": "geojson",
-//         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
-//     });
-//     // // add the icons to the map
-//     // map1.addLayer({
-//     //   "id":"equakes",
-//     //   "type":"symbol",
-//     //   "source":"earthquakes",
-//     //   "layout": {
-//     //       "icon-image": "fire-station-11",
-//     //       "icon-size":1.5,
-//     //   },
-//     //   "paint": {}
-//     // });
-//
-// });
-
+//on map load, run function to load the geojson
 map1.on('load', function() {
+  //add a source layer for earthquakes
   map1.addSource('earthquakes', {
           "type": "geojson",
           "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
       });
+    // add custom icon to the map
     map1.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Antu_earthquake.svg/512px-Antu_earthquake.svg.png', function(error, image) {
         if (error) throw error;
         map1.addImage('cat', image);
@@ -68,7 +31,6 @@ map1.on('load', function() {
         });
     });
 });
-
 
 
 //add a handler for clicking/popups
@@ -86,9 +48,6 @@ map1.on('click', 'equakes', function (e) {
               .setHTML(description)
               .addTo(map1);
 });
-
-
-
 
 
 // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
