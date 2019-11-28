@@ -2883,41 +2883,42 @@ footer a:hover {
   font-family: 'Kanit', sans-serif;
   font-size: .9em;
 }
+
 .lab_1 {
   height: 19em;
   width: 30em;
   margin-left: -2em;
 }
-
+/* style for map from lab 3 */
 #lab-three {
   height: 45em;
   z-index: 0;
 }
-
+/* generic style for initial maps and testing */
 #map {
   height: 45em;
   z-index: 0;
 }
 
 
+/* style for meteorite map window */
 #labFourMeteorites {
   height: 45vh;
   z-index: 0;
 }
-
+/* style for earthquake map window */
 #labFourEarthquake {
   height: 45vh;
   z-index: 0;
 }
-
+/* style for popups */
 .mapboxgl-popup {
   max-width: .15em;
   font-family: 'Kanit', sans-serif;
   font-size: .9em;
   color: #000;
 }
-
-
+/* style for "fit" button */
 #fit {
   display: block;
   position: relative;
@@ -2931,4 +2932,46 @@ footer a:hover {
   text-align: center;
   color: #fff;
   background: #000;
+}
+/* style for layer toggle menu */
+#layerToggleMenu {
+background: #fff;
+position: absolute;
+z-index: 1;
+top: 9em;
+right: 35px;
+border-radius: 3px;
+width: 120px;
+border: 1px solid rgba(0,0,0,0.4);
+font-family: 'Open Sans', sans-serif;
+}
+
+#layerToggleMenu a {
+font-size: 13px;
+color: #404040;
+display: block;
+margin: 0;
+padding: 0;
+padding: 10px;
+text-decoration: none;
+border-bottom: 1px solid rgba(0,0,0,0.25);
+text-align: center;
+}
+
+#layerToggleMenu a:last-child {
+border: none;
+}
+
+#layerToggleMenu a:hover {
+background-color: #f8f8f8;
+color: #404040;
+}
+
+#layerToggleMenu a.active {
+background-color: #3887be;
+color: #ffffff;
+}
+
+#layerToggleMenu a.active:hover {
+background: #3074a4;
 }
