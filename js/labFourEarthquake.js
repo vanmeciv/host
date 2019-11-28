@@ -35,11 +35,16 @@ map1.on('load', function(){
         "type": "geojson",
         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
     });
-    //add the icons to the map
+    // add the icons to the map
     map1.addLayer({
       "id":"equakes",
-      "type":"circle",
-      "source":"earthquakes"
+      "type":"symbol",
+      "source":"earthquakes",
+      "layout": {
+          "icon-image": "earthquake",
+          "icon-size":1.5,
+      },
+      "paint": {}
     });
 });
 
