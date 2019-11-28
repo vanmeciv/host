@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var map = new mapboxgl.Map({
-container: 'map',
+container: 'labFourEarthquake',
 center: [-122.4443, 47.2529],
 zoom: 1,
 attributionControl: false,
