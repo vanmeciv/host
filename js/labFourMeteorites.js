@@ -1,5 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
-var map2 = new mapboxgl.Map({
+var mapTwo = new mapboxgl.Map({
 container: 'labFourMeteorites',
 center: [-122.4443, 47.2529],
 zoom: 3,
@@ -8,20 +8,20 @@ bearing: 45,
 attributionControl: false,
 style: 'mapbox://styles/isaacv/ck3f64eev0mam1cpd002nl27y'
 });
-map2.addControl(new mapboxgl.AttributionControl(), 'top-right');
+mapTwo.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
 
 
 //on map load, run function to load the geojson
-map2.on('load', function(){
+mapTwo.on('load', function(){
   //add a source layer for earthquakes
-  map2.addSource('meteorites', {
+  mapTwo.addSource('meteorites', {
         "type": "geojson",
         "data": "https://data.nasa.gov/resource/gh4g-9sfh.geojson"
     });
 
     // add the icons to the map
-    map2.addLayer({
+    mapTwo.addLayer({
       "id":"meteors",
       "type":"symbol",
       "source":"meteorites",
@@ -38,9 +38,9 @@ map2.on('load', function(){
 
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
-map2.on('click', 'meteors', function (e) {
+mapTwo.on('click', 'meteors', function (e) {
       // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-      map2.flyTo({center: e.features[0].geometry.coordinates});
+      mapTwo.flyTo({center: e.features[0].geometry.coordinates});
       //1. set the coordinates of the popup
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
@@ -51,7 +51,7 @@ map2.on('click', 'meteors', function (e) {
       new mapboxgl.Popup()
               .setLngLat(coordinates)
               .setHTML(description)
-              .addTo(map2);
+              .addTo(mapTwo);
 });
 
 // style: function(feature){
@@ -64,16 +64,16 @@ map2.on('click', 'meteors', function (e) {
 
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
-map2.on('mouseenter', 'meteors', function () {
-map2.getCanvas().style.cursor = 'pointer';
+mapTwo.on('mouseenter', 'meteors', function () {
+mapTwo.getCanvas().style.cursor = 'pointer';
 });
 
 // Change it back to a pointer when it leaves.
-map2.on('mouseleave', 'meteors', function () {
-map2.getCanvas().style.cursor = '';
+mapTwo.on('mouseleave', 'meteors', function () {
+mapTwo.getCanvas().style.cursor = '';
 });
 
 // Reset the extent of the map to the original center/zoom (Button Click)
 document.getElementById('fit').addEventListener('click', function() {
-map2.fitBounds([[ -122, 45 ], [ -119, 49 ]]);
+mapTwo.fitBounds([[ -122, 45 ], [ -119, 49 ]]);
 });
