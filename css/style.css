@@ -2989,7 +2989,7 @@ z-index: 1;
 }
 
 .map-overlay .map-overlay-inner {
-background-color: #fff;
+background-color: #000;
 box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
 border-radius: 3px;
 padding: 10px;
