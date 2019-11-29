@@ -75,11 +75,5 @@ map2.getCanvas().style.cursor = '';
 
 // Reset the extent of the map to the original center/zoom (Button Click)
 document.getElementById('fit').addEventListener('click', function() {
-map2.fitBounds([[
-32.958984,
--5.353521
-], [
-43.50585,
-5.615985
-]]);
+map2.fitBounds([[ -122, 45 ], [ -119, 49 ]]);
 });
