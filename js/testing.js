@@ -66,6 +66,11 @@ map.on('load', function() {
 d3.json('https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson', function(err, data) {
 if (err) throw err;
 
+// // Here we're using d3 to help us make the ajax request but you can use
+// // Any request method (library or otherwise) you wish.
+// d3.json('geojson/battleOfTheBulge', function(err, data) {
+// if (err) throw err;
+
 // Create a month property value based on time
 // used to filter against.
 data.features = data.features.map(function(d) {
