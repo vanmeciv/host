@@ -145,8 +145,8 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       var map = new mapboxgl.Map({
                                       container: 'map',
                                       style: 'mapbox://styles/mapbox/streets-v11',
-                                      zoom: 15,
-                                      center: [-71.97722138410576, -13.517379300798098]
+                                      zoom: 6,
+                                      center: [5.668,50.004]
                                       });
 
                                       map.on('load', function () {
@@ -154,27 +154,28 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                       map.addSource('earthquakes', {
                                               "type": "geojson",
-                                              "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
+                                              "data": "geoJSON/19441215.json"
                                           });
                                         // add custom icon to the map (https://gis.stackexchange.com/questions/179255/mapbox-gl-addlayer-where-are-the-icon-images-coming-from)
                                         map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Antu_earthquake.svg/512px-Antu_earthquake.svg.png', function(error, image) {
                                             if (error) throw error;
-                                            map.addImage('cat', image);
+                                            map.addImage('unit', image);
                                             map.addLayer({
                                                 "id": "equakes",
                                                 "type": "symbol",
                                                 "source": "earthquakes",
                                                 "layout": {
-                                                    "icon-image": "cat",
+                                                    "icon-image": "unit",
                                                     "icon-size": 0.075,
                                                     "visibility":"visible"
                                                 }
                                             });
                                         });
 
+
                                       map.addSource('contours', {
-                                      type: 'vector',
-                                      url: 'mapbox://mapbox.mapbox-terrain-v2'
+                                      type: 'geojson',
+                                      data: 'geoJSON/19441216.json'
                                       });
                                       map.addLayer({
                                       'id': 'contours',
@@ -182,9 +183,9 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       'source': 'contours',
                                       'source-layer': 'contour',
                                       'layout': {
-                                      'visibility': 'visible',
-                                      'line-join': 'round',
-                                      'line-cap': 'round'
+                                        'visibility': 'visible',
+                                        'line-join': 'round',
+                                        'line-cap': 'round'
                                       },
                                       'paint': {
                                       'line-color': '#877b59',

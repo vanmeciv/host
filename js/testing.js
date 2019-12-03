@@ -36,6 +36,8 @@ var months = [
 //   '1945-01-18',
 // ];
 
+
+
 function filterBy(month) {
 
 var filters = ['==', 'month', month];
@@ -45,6 +47,17 @@ map.setFilter('earthquake-labels', filters);
 // Set the label to the month
 document.getElementById('month').textContent = months[month];
 }
+
+
+// testing filter of campaign day
+// function filterBy(day) {
+// var filters = ['==', 'day', day];
+// map.setFilter('unit-circles', filters);
+// map.setFilter('unit-labels', filters);
+// document.getElementById('day').textContent = days[day];
+// }
+
+
 
 // // Set the label to the day
 // document.getElementById('month').textContent = days[month];
