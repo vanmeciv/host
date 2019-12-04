@@ -180,8 +180,9 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                       map.on('load', function() {
 
-
-
+// creating varible for SymbolID
+var icons = e.features[0].properties.SymbolID;
+  console.log('This function has been called');
                                       map.loadImage('img/Friendly_Unit_Infantry.png', function(error, image) {
                                           if (error) throw error;
                                       map.addImage('19441215', image);
