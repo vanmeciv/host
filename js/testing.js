@@ -19,8 +19,23 @@ var months = [
 'September',
 'October',
 'November',
-'December'
+'December',
 ];
+
+
+// [
+// 'December 16, 1944',
+// 'December 18, 1944',
+// 'December 19, 1944',
+// 'December 21, 1944',
+// 'December 23, 1944',
+// 'December 25, 1944',
+// 'December 27, 1944',
+// 'January 1, 1945',
+// 'January 3, 1945',
+// 'January 15, 1945',
+// 'January 18, 1945'
+// ];
 
 // var days = [
 //   '1944-12-16',

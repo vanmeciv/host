@@ -31,26 +31,26 @@ mapOne.addSource('earthquakes', {
       });
   });
 
-mapOne.addSource('contours', {
-type: 'vector',
-url: 'mapbox://mapbox.mapbox-terrain-v2'
-});
-mapOne.addLayer({
-'id': 'Contours',
-'type': 'line',
-'source': 'contours',
-'source-layer': 'contour',
-'layout': {
-'visibility': 'visible',
-'line-join': 'round',
-'line-cap': 'round'
-},
-'paint': {
-'line-color': '#877b59',
-'line-width': 1
-}
-});
-});
+  mapOne.addSource('contours', {
+    type: 'vector',
+    url: 'mapbox://mapbox.mapbox-terrain-v2'
+    });
+  mapOne.addLayer({
+    'id': 'Contours',
+    'type': 'line',
+    'source': 'contours',
+    'source-layer': 'contour',
+        'layout': {
+        'visibility': 'visible',
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+    'paint': {
+        'line-color': '#877b59',
+        'line-width': 1
+        }
+    });
+  });
 
 var toggleableLayerIds = [ 'Contours', 'Earthquakes' ];
 
