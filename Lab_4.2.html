@@ -9,7 +9,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--DESCRIPTION ON BROWSER TAB - LOGO?-->
-        <title>T GIS 503: Lab 4</title>
+        <title>T GIS 503: Lab 5</title>
 <!-- BEGINS ALL THINGS FONT & STYLE-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -89,7 +89,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                             <div class="single-blog-post">
 
                                 <div class="text-content">
-                                    <h2>Lab 4</h2>
+                                    <h2>Lab 5</h2>
                                     <span><a href="#">10 December 2019</a></span>
                                     <p>
 
@@ -177,38 +177,49 @@ a {
                                         container: 'map', // container element id
                                         style: 'mapbox://styles/mapbox/light-v10',
                                         center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-                                        zoom: 12
+                                        zoom: 1
                                       });
 
+
+
                                       map.on('load', function() {
+                                      map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Antu_earthquake.svg/512px-Antu_earthquake.svg.png', function(error, image) {
+                                          if (error) throw error;
+                                          map.addImage('quake', image);
                                       map.addLayer({
                                         id: 'collisions',
-                                        type: 'circle',
+                                        type: 'symbol',
                                         source: {
                                           type: 'geojson',
                                           data: 'geoJSON/battleOfTheBulge.json' // replace this with the url of your own geojson
                                         },
-                                        paint: {
-                                          'circle-radius': [
-                                            'interpolate',
-                                            ['linear'],
-                                            ['number', ['get', 'Casualty']],
-                                            0, 4,
-                                            5, 24
-                                          ],
-                                          'circle-color': [
-                                            'interpolate',
-                                            ['linear'],
-                                            ['number', ['get', 'Casualty']],
-                                            0, '#2DC4B2',
-                                            1, '#3BB3C3',
-                                            2, '#669EC4',
-                                            3, '#8B88B6',
-                                            4, '#A2719B',
-                                            5, '#AA5E79'
-                                          ],
-                                          'circle-opacity': 0.8
+                                        layout: {
+                                          'icon-image': 'quake',
+                                          'icon-size': 0.075,
                                         }
+
+//this is the old styling from collisions1601.geojson
+                                        // paint: {
+                                        //   'circle-radius': [
+                                        //     'interpolate',
+                                        //     ['linear'],
+                                        //     ['number', ['get', 'Casualty']],
+                                        //     0, 4,
+                                        //     5, 24
+                                        //   ],
+                                        //   'circle-color': [
+                                        //     'interpolate',
+                                        //     ['linear'],
+                                        //     ['number', ['get', 'Casualty']],
+                                        //     0, '#2DC4B2',
+                                        //     1, '#3BB3C3',
+                                        //     2, '#669EC4',
+                                        //     3, '#8B88B6',
+                                        //     4, '#A2719B',
+                                        //     5, '#AA5E79'
+                                        //   ],
+                                        //   'circle-opacity': 0.8
+                                        // }
                                       });
                                     });
 
@@ -234,37 +245,37 @@ a {
 
 
 
-                                      //add a handler for clicking/popups
-                                      //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
-                                      map.on('click', 'equakes', function (e) {
-                                            //1. set the coordinates of the popup
-                                            var coordinates = e.features[0].geometry.coordinates;
-                                            //2. create the information that will display in the popup
-                                            // var description = e.features[0].properties.title;
-                                            var depth = e.features[0].geometry.depth;
-                                            var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
-                                            //3. make the popup
-                                            new mapboxgl.Popup()
-                                                    .setLngLat(coordinates)
-                                                    .setHTML(description)
-                                                    .addTo(map);
-                                      });
-
-
-                                      // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-                                      map.on('click', 'equakes', function (e) {
-                                      map.flyTo({center: e.features[0].geometry.coordinates});
-                                      });
-
-                                      // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
-                                      map.on('mouseenter', 'equakes', function () {
-                                      map.getCanvas().style.cursor = 'pointer';
-                                      });
-
-                                      // Change it back to a pointer when it leaves.
-                                      map.on('mouseleave', 'equakes', function () {
-                                      map.getCanvas().style.cursor = '';
-                                      });
+                                      // //add a handler for clicking/popups
+                                      // //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
+                                      // map.on('click', 'collisions', function (e) {
+                                      //       //1. set the coordinates of the popup
+                                      //       var coordinates = e.features[0].geometry.coordinates;
+                                      //       //2. create the information that will display in the popup
+                                      //       // var description = e.features[0].properties.title;
+                                      //       var depth = e.features[0].geometry.depth;
+                                      //       var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
+                                      //       //3. make the popup
+                                      //       new mapboxgl.Popup()
+                                      //               .setLngLat(coordinates)
+                                      //               .setHTML(description)
+                                      //               .addTo(map);
+                                      // });
+                                      //
+                                      //
+                                      // // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+                                      // map.on('click', 'collisions', function (e) {
+                                      // map.flyTo({center: e.features[0].geometry.coordinates});
+                                      // });
+                                      //
+                                      // // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+                                      // map.on('mouseenter', 'collisions', function () {
+                                      // map.getCanvas().style.cursor = 'pointer';
+                                      // });
+                                      //
+                                      // // Change it back to a pointer when it leaves.
+                                      // map.on('mouseleave', 'collisions', function () {
+                                      // map.getCanvas().style.cursor = '';
+                                       });
 
 
                                       </script>
