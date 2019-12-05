@@ -1,633 +1,105 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<!--
-Thank you templatemo.com for an amazing foundation for  my website. This is the Highway Template found here: https://templatemo.com/tm-520-highway
--->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--DESCRIPTION ON BROWSER TAB - LOGO?-->
-        <title>T GIS 503: Lab 5</title>
-<!-- BEGINS ALL THINGS FONT & STYLE-->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
-        <link rel="stylesheet" href="css/light-box.css">
-        <link rel="stylesheet" href="css/style.css">
-<!-- fontAwesome Kit -->
-        <script src="https://kit.fontawesome.com/f198f69782.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<!--fontAwesome Loadtime-->
-        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-<!--END ALL THINGS FONT & STYLE-->
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-<!--BEGIN Leaflet CSS & Script-->
-
-        <link rel="stylesheet" href="leaflet/leaflet.css" />
-        <script src="leaflet/leaflet.js"></script>
-
-
-<!--END Leaflet CSS & Script-->
-
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-          <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
-
-    </head>
-
+<head>
+<meta charset='utf-8' />
+<title>Add custom icons with Markers</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+    body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; };
+</style>
+</head>
 <body>
-
-    <nav>
-        <div class="logo">
-            <a href="index.html">Isaac <em>V</em></a>
-        </div>
-      <div class="menu-icon">
-        <span></span>
-      </div>
-    </nav>
-    <section class="overlay-menu">
-      <div class="container">
-        <div class="row">
-          <div class="main-menu">
-              <ul>
-                  <li>
-                      <a href="index.html">Main</a>
-                  </li>
-                  <li>
-                      <a href="grid.html">Work</a>
-                  </li>
-                  <li>
-                      <a href="about.html">About Me</a>
-                  </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="page-heading">
-        <div class="container">
-            <div class="heading-content">
-                <h1>T GIS <em>503</em></h1>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="blog-entries">
-        <div class="container">
-            <div class="col-md-9">
-                <div class="blog-posts">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="single-blog-post">
-
-                                <div class="text-content">
-                                    <h2>Lab 5</h2>
-                                    <span><a href="#">10 December 2019</a></span>
-                                    <p>
-
-                                      <style>
-
-                                      a {
-                                        text-decoration: none;
-                                        color: #2dc4b2;
-                                      }
-
-                                      #console {
-                                        position: absolute;
-                                        width: 240px;
-                                        margin: 10px;
-                                        padding: 10px 20px;
-                                        background-color: white;
-                                        z-index: 1;
-                                      }
-
-                                      .session {
-                                        margin-bottom: 20px;
-                                        color: #000;
-                                      }
-
-                                      .row {
-                                        height: 12px;
-                                        width: 100%;
-                                        color: #000;
-                                      }
-
-                                      .colors {
-                                        background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
-                                        margin-bottom: 5px;
-                                      }
-
-                                      .label {
-                                        width: 15%;
-                                        display: inline-block;
-                                        text-align: center;
-                                        color: #000;
-                                      }
-                                      </style>
-
-                                      <div id='map'>
-                                      <div id='console'>
-                                        <h1>Battle of the Ardennes</h1>
-                                        <p>Data: Battle of the Bulge</p>
-                                        <div class='session'>
-                                          <h2 style="color:#000;">Unit Movement</h2>
-                                          <div class='row colors'>
-                                          </div>
-                                          <div class='row labels'>
-                                            <div class='label'>0</div>
-                                            <div class='label'>1</div>
-                                            <div class='label'>2</div>
-                                            <div class='label'>3</div>
-                                            <div class='label'>4</div>
-                                            <div class='label'>5+</div>
-                                          </div>
-                                        </div>
-                                        <div class='session' id='sliderbar'>
-                                        <h2 style="color:#000;">Hour: <label id='active-hour'>12PM</label></h2>
-                                        <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
-                                      </div></div></div>
-
-
-
-                                      </div>
-                                      </div>
-                                      </div>
-                                      </div>
-
-
-                                      <!-- <nav id="layerToggleMenu"></nav> -->
-                                      <div id="map"></div>
-
-                                      <script>
-                                      mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
-
-                                      var map = new mapboxgl.Map({
-                                        container: 'map', // container element id
-                                        style: 'mapbox://styles/mapbox/light-v10',
-                                        center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-                                        zoom: 1
-                                      });
-
-
-
-                                      map.on('load', function() {
-
-                                      // creating variable for SymbolID
-                                      // var icons = e.features[0].properties.SymbolID;
-
-
-                                      var icon = [];
-                                      icon[0] = "img/Friendly_Unit_Infantry.png";
-                                      icon[1] = "img/Friendly_Unit_Armor.png";
-                                      icon[2] = "img/Hostile_Unit_Armor_Solid.png";
-                                      icon[3] = "img/Hostile_Unit_Airborne_Solid.png";
-                                      icon[4] = "img/Friendly_Unit_Air_Defense.png";
-                                      icon[5] = "img/Neutral_Unit_Infantry_Solid.png";
-                                      icon[6] = "img/82nd_Airborne_Division.png";
-                                      icon[7] = "img/101st_Airborne_Division.png";
-                                      icon[9] = "img/17th_Airborne_Division.png";
-                                      icon[10] = "img/Neutral_Unit_Infantry_Solid.png";
-
-
-                                      // var icon = [ "img/Friendly_Unit_Infantry.png", "______.png", "img/Friendly_Unit_Armor.png", "img/Hostile_Unit_Infantry_Solid.png", "img/Hostile_Unit_Armor_Solid.png", "img/Hostile_Unit_Airborne_Solid.png", "img/Friendly_Unit_Air_Defense.png", "img/Neutral_Unit_Infantry_Solid.png", "______.png", "______.png", "______.png", "img/82nd_Airborne_Division.png", "img/101st_Airborne_Division.png", "img/17th_Airborne_Division.png", "img/Neutral_Unit_Infantry_Solid.png" ];
-
-                                      // attempt at conditional statement for SymbolID property to return a specific icon based on unitType
-
-
-
-
-                                      // else if e.features.properties.SymbolID === [3]
-                                      //     return icon[2]
-                                      // else if e.features.properties.SymbolID === [4]
-                                      //     return icon[3]
-                                      // else if e.features.properties.SymbolID === [5]
-                                      //     return icon[4]
-                                      // else if e.features.properties.SymbolID === [6]
-                                      //     return icon[5]
-                                      // else if e.features.properties.SymbolID === [7]
-                                      //     return icon[6]
-                                      // else if e.features.properties.SymbolID === [9]
-                                      //     return icon[7]
-                                      // else if e.features.properties.SymbolID === [10]
-                                      //     return icon[8]
-                                      // else if e.features.properties.SymbolID === [11]
-                                      //     return icon[9]
-                                      // else if e.features.properties.SymbolID === [12 or 15]
-                                      //     return icon[10]
-                                      // else if e.features.properties.SymbolID === [13]
-                                      //     return icon[11]
-                                      // else if e.features.properties.SymbolID === [14]
-                                      //     return icon[12]
-                                      // else if e.features.properties.SymbolID === [16]
-                                      //     return icon[13]
-                                      // else e.features.properties.SymbolID === [17]
-                                      //     return icon[14]
-
-
-                                      // map.loadImage(icon, function(error, image) {
-                                      //     if (error) throw error;
-                                      // map.addImage('unit', image);
-                                      // map.addLayer({
-                                      //   id: 'Campaign',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/battleOfTheBulge.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': 'unit',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-
-                                      // mapOne.on('click', 'Earthquakes', function (e) {
-                                      //       //1. set the coordinates of the popup
-                                      //       var coordinates = e.features[0].geometry.coordinates;
-                                      //       //2. create the information that will display in the popup
-                                      //       // var description = e.features[0].properties.title;
-                                      //       var depth = e.features[0].geometry.depth;
-                                      //       var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
-                                      //       //3. make the popup
-                                      //       new mapboxgl.Popup()
-                                      //               .setLngLat(coordinates)
-                                      //               .setHTML(description)
-                                      //               .addTo(mapOne);
-                                      // });
-
-
-
-
-// adds all json data by entire dataset (see id)
-                                    var imageurl = function () {
-                                        var unitType = features[0].properties.SymbolID;
-                                        if (unitType === 0) return icon[0];
-                                        else return icon[2];
-                                      };
-
-                                      map.loadImage(imageurl, function(error, image) {
-                                          if (error) throw error;
-                                      map.addImage('unit', image);
-                                      map.addLayer({
-                                        id: 'Campaign',
-                                        type: 'symbol',
-                                        source: {
-                                          type: 'geojson',
-                                          data: 'geoJSON/battleOfTheBulge.json' // replace this with the url of your own geojson
-                                        },
-                                        layout: {
-                                          'icon-image': 'unit',
-                                          'icon-size': 0.075,
-                                        },
-                                      });
-
-
-
-// adds all json data by individual date (see id)
-
-                                      // map.loadImage('img/Friendly_Unit_Infantry.png', function(error, image) {
-                                      //     if (error) throw error;
-                                      // map.addImage('19441215', image);
-                                      // map.addLayer({
-                                      //   id: '19441215',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441215.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441215',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-
-                                      // map.addImage('19441216', image);
-                                      // map.addLayer({
-                                      //   id: '19441216',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441216.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441216',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19441218', image);
-                                      // map.addLayer({
-                                      //   id: '19441218',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441218.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441218',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19441219', image);
-                                      // map.addLayer({
-                                      //   id: '19441219',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441219.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441219',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19441221', image);
-                                      // map.addLayer({
-                                      //   id: '19441221',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441221.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441221',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19441223', image);
-                                      // map.addLayer({
-                                      //   id: '19441223',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441223.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441223',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19441227', image);
-                                      // map.addLayer({
-                                      //   id: '19441227',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19441227.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19441227',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19450101', image);
-                                      // map.addLayer({
-                                      //   id: '19450101',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19450101.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19450101',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19450103', image);
-                                      // map.addLayer({
-                                      //   id: '19450103',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19450103.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19450103',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19450115', image);
-                                      // map.addLayer({
-                                      //   id: '19450115',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19450115.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19450115',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-                                      //
-                                      // map.addImage('19450118', image);
-                                      // map.addLayer({
-                                      //   id: '19450118',
-                                      //   type: 'symbol',
-                                      //   source: {
-                                      //     type: 'geojson',
-                                      //     data: 'geoJSON/19450118.json' // replace this with the url of your own geojson
-                                      //   },
-                                      //   layout: {
-                                      //     'icon-image': '19450118',
-                                      //     'icon-size': 0.075,
-                                      //   },
-                                      // });
-
-                                        //this is the old styling from collisions1601.geojson
-                                        // paint: {
-                                        //   'circle-radius': [
-                                        //     'interpolate',
-                                        //     ['linear'],
-                                        //     ['number', ['get', 'Casualty']],
-                                        //     0, 4,
-                                        //     5, 24
-                                        //   ],
-                                        //   'circle-color': [
-                                        //     'interpolate',
-                                        //     ['linear'],
-                                        //     ['number', ['get', 'Casualty']],
-                                        //     0, '#2DC4B2',
-                                        //     1, '#3BB3C3',
-                                        //     2, '#669EC4',
-                                        //     3, '#8B88B6',
-                                        //     4, '#A2719B',
-                                        //     5, '#AA5E79'
-                                        //   ],
-                                        //   'circle-opacity': 0.8
-                                        // }
-
-                                    });
-
-                                    // filters the time slider by demo dataset using time property
-                                    // how would this be done with current dataset?
-                                    filter: ['==', ['number', ['get', 'Hour']], 12]
-
-
-
-
-                                    document.getElementById('slider').addEventListener('input', function(e) {
-                                    var hour = parseInt(e.target.value);
-                                    // update the map
-                                    map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
-
-                                    // converting 0-23 hour to AMPM format
-                                    var ampm = hour >= 12 ? 'PM' : 'AM';
-                                    var hour12 = hour % 12 ? hour % 12 : 12;
-
-                                    // update text in the UI
-                                    document.getElementById('active-hour').innerText = hour12 + ampm;
-                                    });
-
-
-
-
-
-                                      // //add a handler for clicking/popups
-                                      // //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
-                                      // map.on('click', 'collisions', function (e) {
-                                      //       //1. set the coordinates of the popup
-                                      //       var coordinates = e.features[0].geometry.coordinates;
-                                      //       //2. create the information that will display in the popup
-                                      //       // var description = e.features[0].properties.title;
-                                      //       var depth = e.features[0].geometry.depth;
-                                      //       var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
-                                      //       //3. make the popup
-                                      //       new mapboxgl.Popup()
-                                      //               .setLngLat(coordinates)
-                                      //               .setHTML(description)
-                                      //               .addTo(map);
-                                      // });
-                                      //
-                                      //
-                                      // // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-                                      // map.on('click', 'collisions', function (e) {
-                                      // map.flyTo({center: e.features[0].geometry.coordinates});
-                                      // });
-                                      //
-                                      // // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
-                                      // map.on('mouseenter', 'collisions', function () {
-                                      // map.getCanvas().style.cursor = 'pointer';
-                                      // });
-                                      //
-                                      // // Change it back to a pointer when it leaves.
-                                      // map.on('mouseleave', 'collisions', function () {
-                                      // map.getCanvas().style.cursor = '';
-                                       });
-
-
-                                      </script>
-
-                                    </p>
-                                    <div class="tags-share">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <ul class="tags">
-                                                    <li>Tags:</li>
-                                                    <li><a href="#">maps</a>,</li>
-                                                    <li><a href="#">GIS</a>,</li>
-                                                    <li><a href="#">Mapbox GL</a></li>
-                                                </ul>
-                                            </div>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!--BEGINS "CONTACT" pop-up button - BOTTOM RIGHT-->
-        <div class="popup-icon">
-          <button id="modBtn" class="modal-btn"><img src="img/contact-icon.png" alt=""></button>
-        </div>
-
-        <!-- Modal -->
-        <div id="modal" class="modal">
-          <!-- Modal Content -->
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h3 class="header-title">Contact <em>Isaac</em></h3>
-              <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
-            </div>
-            <!-- Modal Body -->
-            <div class="modal-body">
-              <div class="col-md-6 col-md-offset-3">
-                <form id="contact" action="" method="post">
-                    <div class="row">
-                        <div class="col-md-12">
-                          <fieldset>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <button type="submit" id="form-submit" class="btn">Send Message Now</button>
-                          </fieldset>
-                        </div>
-                        <div id="social">
-                          </br>
-                          </br>
-                          <p> Form Under Construction </p>
-                          <a href="https://www.linkedin.com/in/isaac-vanmechelen/" class="fab fa-linkedin-in fa-2x" target="_blank"></a>
-                          <a href="https://www.facebook.com/IsaacV.Photography/" class="fab fa-facebook-f fa-2x" target="_blank"></a>
-                          <a href="https://www.behance.net/vanmeciv" class="fab fa-behance fa-2x" target="_blank"></a>
-                          <a href="https://github.com/vanmeciv" class="fab fa-github fa-2x" target="_blank"></a>
-                          <a href="https://msgtcohort.slack.com" class="fab fa-slack-hash fa-2x" target="_blank"></a>
-                        </div>
-                    </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    <!--ENDS "CONTACT" pop-up button - BOTTOM RIGHT-->
-<!--BEGINS FOOTER-->
-          <footer>
-              <div class="container-fluid">
-                  <div class="col-md-12">
-                      <p>| &copy; 2019 | Designed by
-                        <a href="https://templatemo.com/tm-520-highway" target="_blank">TemplateMo</a>
-                        |</br>| Cloned by Isaac Van Mechelen
-                        <a href="img/Isaac_Van_Mechelen's_Resume.pdf" class="far fa-file-pdf fa-2x" target="_blank" style="margin: .25em; text-decoration: none; color: #fff;">
-                        </a>|
-                      </p>
-                  </div>
-              </div>
-          </footer>
-<!--ENDS FOOTER-->
+<style>
+.marker {
+    display: block;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+</style>
+
+<div id='map'></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
+var geojson = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": [60, 60]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.324462890625,
+                    -16.024695711685304
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Bar",
+                "iconSize": [50, 50]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -61.2158203125,
+                    -15.97189158092897
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Baz",
+                "iconSize": [40, 40]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -63.29223632812499,
+                    -18.28151823530889
+                ]
+            }
+        }
+    ]
+};
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-65.017, -16.457],
+    zoom: 5
+});
+
+// add markers to map
+geojson.features.forEach(function(marker) {
+    // create a DOM element for the marker
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(img/' + marker.properties.SymbolID.join('/') + '/)';
+    el.style.width = marker.properties.iconSize[0] + 'px';
+    el.style.height = marker.properties.iconSize[1] + 'px';
+
+    el.addEventListener('click', function() {
+        window.alert(marker.properties.message);
+    });
+
+    // add marker to map
+    new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
+</script>
 
 </body>
 </html>
