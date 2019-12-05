@@ -201,13 +201,8 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                       // attempt at conditional statement for SymbolID property to return a specific icon based on unitType
 
-                                      var unitType = e.features[0].propties.SymbolID;
 
-                                      if (unitType === 0) {
-                                          return icon[0];
-                                      }
-                                      else return icon[2];
-                                    ;
+
 
                                       // else if e.features.properties.SymbolID === [3]
                                       //     return icon[2]
@@ -253,9 +248,31 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
                                       //   },
                                       // });
 
-// adds all json data by entire dataset (see id)
+                                      // mapOne.on('click', 'Earthquakes', function (e) {
+                                      //       //1. set the coordinates of the popup
+                                      //       var coordinates = e.features[0].geometry.coordinates;
+                                      //       //2. create the information that will display in the popup
+                                      //       // var description = e.features[0].properties.title;
+                                      //       var depth = e.features[0].geometry.depth;
+                                      //       var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
+                                      //       //3. make the popup
+                                      //       new mapboxgl.Popup()
+                                      //               .setLngLat(coordinates)
+                                      //               .setHTML(description)
+                                      //               .addTo(mapOne);
+                                      // });
 
-                                      map.loadImage(unitType, function(error, image) {
+
+
+
+// adds all json data by entire dataset (see id)
+                                    var imageurl = function () {
+                                        var unitType = features[0].properties.SymbolID;
+                                        if (unitType === 0) return icon[0];
+                                        else return icon[2];
+                                      };
+
+                                      map.loadImage(imageurl, function(error, image) {
                                           if (error) throw error;
                                       map.addImage('unit', image);
                                       map.addLayer({
