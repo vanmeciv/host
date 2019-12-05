@@ -180,95 +180,117 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
                                       map.on('load', function() {
 
-// creating varible for SymbolID
-// var icons = e.features[0].properties.SymbolID;
-// var icon = icons [0]
+                                      // creating variable for SymbolID
+                                      // var icons = e.features[0].properties.SymbolID;
 
-// 
-// var icon = [ "1.png", "2.png", "3.png", "4.png", ];
-//
-// if features.properties.SymbolID === [0]
-//     return icon[0]
-// else if features.properties.SymbolID === [1]
-//     return icon[1]
-// else if features.properties.SymbolID === [2]
-//     return icon[2]
-// else if features.properties.SymbolID === [3]
-//     return icon[3]
-// else if features.properties.SymbolID === [4]
-//     return icon[4]
-// else if features.properties.SymbolID === [5]
-//     return icon[5]
-// else if features.properties.SymbolID === [6]
-//     return icon[6]
-// else if features.properties.SymbolID === [7]
-//     return icon[7]
-// else if features.properties.SymbolID === [8]
-//     return icon[8]
-// else if features.properties.SymbolID === [9]
-//     return icon[9]
-// else if features.properties.SymbolID === [10]
-//     return icon[10]
-// else if features.properties.SymbolID === [11]
-//     return icon[11]
-// else if features.properties.SymbolID === [12]
-//     return icon[12]
-// else if features.properties.SymbolID === [13]
-//     return icon[13]
-// else features.properties.SymbolID === [14]
-//     return icon[14]
 
-var icon = [ "1.png", "2.png", "3.png", "4.png", ];
+                                      var icon = [];
+                                      icon[0] = "img/Friendly_Unit_Infantry.png";
+                                      icon[1] = "img/Friendly_Unit_Armor.png";
+                                      icon[2] = "img/Hostile_Unit_Armor_Solid.png";
+                                      icon[3] = "img/Hostile_Unit_Airborne_Solid.png";
+                                      icon[4] = "img/Friendly_Unit_Air_Defense.png";
+                                      icon[5] = "img/Neutral_Unit_Infantry_Solid.png";
+                                      icon[6] = "img/82nd_Airborne_Division.png";
+                                      icon[7] = "img/101st_Airborne_Division.png";
+                                      icon[9] = "img/17th_Airborne_Division.png";
+                                      icon[10] = "img/Neutral_Unit_Infantry_Solid.png";
 
-// var icon = icons [0]
 
-if features.properties.SymbolID === [0]
-    return icon[0]
-else if features.properties.SymbolID === [1]
-    return icon[1]
-else if features.properties.SymbolID === [2]
-    return icon[2]
-else if features.properties.SymbolID === [3]
-    return icon[3]
-else if features.properties.SymbolID === [4]
-    return icon[4]
-else if features.properties.SymbolID === [5]
-    return icon[5]
-else if features.properties.SymbolID === [6]
-    return icon[6]
-else if features.properties.SymbolID === [7]
-    return icon[7]
-else if features.properties.SymbolID === [8]
-    return icon[8]
-else if features.properties.SymbolID === [9]
-    return icon[9]
-else if features.properties.SymbolID === [10]
-    return icon[10]
-else if features.properties.SymbolID === [11]
-    return icon[11]
-else if features.properties.SymbolID === [12]
-    return icon[12]
-else if features.properties.SymbolID === [13]
-    return icon[13]
-else features.properties.SymbolID === [14]
-    return icon[14]
+                                      // var icon = [ "img/Friendly_Unit_Infantry.png", "______.png", "img/Friendly_Unit_Armor.png", "img/Hostile_Unit_Infantry_Solid.png", "img/Hostile_Unit_Armor_Solid.png", "img/Hostile_Unit_Airborne_Solid.png", "img/Friendly_Unit_Air_Defense.png", "img/Neutral_Unit_Infantry_Solid.png", "______.png", "______.png", "______.png", "img/82nd_Airborne_Division.png", "img/101st_Airborne_Division.png", "img/17th_Airborne_Division.png", "img/Neutral_Unit_Infantry_Solid.png" ];
 
-                                      map.loadImage('img/Friendly_Unit_Infantry.png', function(error, image) {
+                                      // attempt at conditional statement for SymbolID property to return a specific icon based on unitType
+
+                                      var unitType = e.features[0].propties.SymbolID;
+
+                                      if (unitType === 0) {
+                                          return icon[0];
+                                      }
+                                      else return icon[2];
+                                      };
+
+                                      // else if e.features.properties.SymbolID === [3]
+                                      //     return icon[2]
+                                      // else if e.features.properties.SymbolID === [4]
+                                      //     return icon[3]
+                                      // else if e.features.properties.SymbolID === [5]
+                                      //     return icon[4]
+                                      // else if e.features.properties.SymbolID === [6]
+                                      //     return icon[5]
+                                      // else if e.features.properties.SymbolID === [7]
+                                      //     return icon[6]
+                                      // else if e.features.properties.SymbolID === [9]
+                                      //     return icon[7]
+                                      // else if e.features.properties.SymbolID === [10]
+                                      //     return icon[8]
+                                      // else if e.features.properties.SymbolID === [11]
+                                      //     return icon[9]
+                                      // else if e.features.properties.SymbolID === [12 or 15]
+                                      //     return icon[10]
+                                      // else if e.features.properties.SymbolID === [13]
+                                      //     return icon[11]
+                                      // else if e.features.properties.SymbolID === [14]
+                                      //     return icon[12]
+                                      // else if e.features.properties.SymbolID === [16]
+                                      //     return icon[13]
+                                      // else e.features.properties.SymbolID === [17]
+                                      //     return icon[14]
+
+
+                                      // map.loadImage(icon, function(error, image) {
+                                      //     if (error) throw error;
+                                      // map.addImage('unit', image);
+                                      // map.addLayer({
+                                      //   id: 'Campaign',
+                                      //   type: 'symbol',
+                                      //   source: {
+                                      //     type: 'geojson',
+                                      //     data: 'geoJSON/battleOfTheBulge.json' // replace this with the url of your own geojson
+                                      //   },
+                                      //   layout: {
+                                      //     'icon-image': 'unit',
+                                      //     'icon-size': 0.075,
+                                      //   },
+                                      // });
+
+// adds all json data by entire dataset (see id)
+
+                                      map.loadImage(unitType, function(error, image) {
                                           if (error) throw error;
-                                      map.addImage('19441215', image);
+                                      map.addImage('unit', image);
                                       map.addLayer({
-                                        id: '19441215',
+                                        id: 'Campaign',
                                         type: 'symbol',
                                         source: {
                                           type: 'geojson',
-                                          data: 'geoJSON/19441215.json' // replace this with the url of your own geojson
+                                          data: 'geoJSON/battleOfTheBulge.json' // replace this with the url of your own geojson
                                         },
                                         layout: {
-                                          'icon-image': '19441215',
+                                          'icon-image': 'unit',
                                           'icon-size': 0.075,
                                         },
                                       });
-                                      //
+
+
+
+// adds all json data by individual date (see id)
+
+                                      // map.loadImage('img/Friendly_Unit_Infantry.png', function(error, image) {
+                                      //     if (error) throw error;
+                                      // map.addImage('19441215', image);
+                                      // map.addLayer({
+                                      //   id: '19441215',
+                                      //   type: 'symbol',
+                                      //   source: {
+                                      //     type: 'geojson',
+                                      //     data: 'geoJSON/19441215.json' // replace this with the url of your own geojson
+                                      //   },
+                                      //   layout: {
+                                      //     'icon-image': '19441215',
+                                      //     'icon-size': 0.075,
+                                      //   },
+                                      // });
+
                                       // map.addImage('19441216', image);
                                       // map.addLayer({
                                       //   id: '19441216',
@@ -409,7 +431,7 @@ else features.properties.SymbolID === [14]
                                       //   },
                                       // });
 
-//this is the old styling from collisions1601.geojson
+                                        //this is the old styling from collisions1601.geojson
                                         // paint: {
                                         //   'circle-radius': [
                                         //     'interpolate',
@@ -434,6 +456,8 @@ else features.properties.SymbolID === [14]
 
                                     });
 
+                                    // filters the time slider by demo dataset using time property
+                                    // how would this be done with current dataset?
                                     filter: ['==', ['number', ['get', 'Hour']], 12]
 
 
