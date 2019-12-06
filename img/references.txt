@@ -1,0 +1,28 @@
+https://www.usna.edu/texis/search/?dropXSL=&pr=External+Meta&query=pguth%40usna.edu&as_values_010=
+https://www.usna.edu/Oceanography/midsResearch/guth_research.php
+https://www.usna.edu/Users/oceano/pguth/md_help/microdemtutorials/reg_digit_lab/lab_digitize_vector.htm
+https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols
+https://en.wikipedia.org/wiki/NATO_Joint_Military_Symbology
+https://history.army.mil/books/wwii/11-4/symbols.htm
+
+
+
+if SymbolID === 
+1 or 8===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry.svg [Friendly_Unit_Infantry.png]
+2===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg ________________
+3===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour.svg (Friendly Armor) [Friendly_Unit_Armor.png]
+4===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Hostile).svg [Hostile_Unit_Infantry_Solid.png]
+5===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Hostile).svg [Hostile_Unit_Armor_Solid.png]
+6===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Airborne_(Hostile).svg [Hostile_Unit_Airborne_Solid.png]
+7===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Air_Defence.svg [Friendly_Unit_Air_Defense.png]
+9===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Neutral).svg (Neutral Infantry) [Neutral_Unit_Infantry_Solid.png]
+10===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Unknown_Allegiance_-_Armour.svg (Unknown Air Defense) ___________
+11===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg (POLAND Armor) MAYBE ORANGE???
+12 or 15===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Neutral).svg (POLAND Infantry) MAYBE ORANGE or YELLOW???
+13===https://commons.wikimedia.org/wiki/File:82nd_Airborne_Division_CSIB.svg (82nd Airborne Logo) [82nd_Airborne_Division.png]
+14===https://en.wikipedia.org/wiki/List_of_commanders_of_101st_Airborne_Division#/media/File:US_101st_Airborne_Division_patch.svg (101st Airborne Logo) [101st_Airborne_Division.png]
+16===https://en.wikipedia.org/wiki/17th_Airborne_Division_(United_States)#/media/File:USA_-_17_ABN_DIV.svg (17th Airborne Logo) [17th_Airborne_Division.png]
+17===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Neutral).svg [Neutral_Unit_Infantry_Solid.png]
+
+Else
+0===

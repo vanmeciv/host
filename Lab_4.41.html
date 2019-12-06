@@ -44,7 +44,7 @@ var map = new mapboxgl.Map({
 map.on('load', function(){
   map.addSource('contours', {
     type: 'geojson',
-    data: 'https://cors-anywhere.herokuapp.com/https://github.com/vanmeciv/host/blob/master/geoJSON/cats.json'
+    data: 'geoJSON/cats.json'
     });
 
   var geojson = map.addLayer({
