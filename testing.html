@@ -1,207 +1,119 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<!--
-Thank you templatemo.com for an amazing foundation for  my website. This is the Highway Template found here: https://templatemo.com/tm-520-highway
--->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--DESCRIPTION ON BROWSER TAB - LOGO?-->
-        <title>T GIS 503: Lab 4</title>
-<!-- BEGINS ALL THINGS FONT & STYLE-->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
-        <link rel="stylesheet" href="css/light-box.css">
-        <link rel="stylesheet" href="css/style.css">
-<!-- fontAwesome Kit -->
-        <script src="https://kit.fontawesome.com/f198f69782.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-<!--fontAwesome Loadtime-->
-        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-<!--END ALL THINGS FONT & STYLE-->
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-<!--BEGIN Leaflet CSS & Script-->
-
-        <link rel="stylesheet" href="leaflet/leaflet.css" />
-        <script src="leaflet/leaflet.js"></script>
-
-<!--END Leaflet CSS & Script-->
-
-<!--BEGIN Leaflet CSS & Script-->
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
-<!--END mapbox CSS & Script-->
-    </head>
-
+<head>
+<meta charset='utf-8' />
+<title>Join local JSON data with vector tile geometries</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; };
+</style>
+</head>
 <body>
 
-    <nav>
-        <div class="logo">
-            <a href="index.html">Isaac <em>V</em></a>
-        </div>
-      <div class="menu-icon">
-        <span></span>
-      </div>
-    </nav>
-    <section class="overlay-menu">
-      <div class="container">
-        <div class="row">
-          <div class="main-menu">
-              <ul>
-                  <li>
-                      <a href="index.html">Main</a>
-                  </li>
-                  <li>
-                      <a href="grid.html">Work</a>
-                  </li>
-                  <li>
-                      <a href="about.html">About Me</a>
-                  </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="page-heading">
-        <div class="container">
-            <div class="heading-content">
-                <h1>T GIS <em>503</em></h1>
-            </div>
-        </div>
-    </div>
+<div id='map'>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/light-v10',
+center: [-99.9, 41.5],
+zoom: 1
+});
 
+// Join local JSON data with vector tile geometry
+// USA unemployment rate in 2009
+// Source https://data.bls.gov/timeseries/LNS14000000
+var maxValue = 13;
+var data = [
+{"STATE_ID": "01", "unemployment": 13.17},
+{"STATE_ID": "02", "unemployment": 9.5},
+{"STATE_ID": "04", "unemployment": 12.15},
+{"STATE_ID": "05", "unemployment": 8.99},
+{"STATE_ID": "06", "unemployment": 11.83},
+{"STATE_ID": "08", "unemployment": 7.52},
+{"STATE_ID": "09", "unemployment": 6.44},
+{"STATE_ID": "10", "unemployment": 5.17},
+{"STATE_ID": "12", "unemployment": 9.67},
+{"STATE_ID": "13", "unemployment": 10.64},
+{"STATE_ID": "15", "unemployment": 12.38},
+{"STATE_ID": "16", "unemployment": 10.13},
+{"STATE_ID": "17", "unemployment": 9.58},
+{"STATE_ID": "18", "unemployment": 10.63},
+{"STATE_ID": "19", "unemployment": 8.09},
+{"STATE_ID": "20", "unemployment": 5.93},
+{"STATE_ID": "21", "unemployment": 9.86},
+{"STATE_ID": "22", "unemployment": 9.81},
+{"STATE_ID": "23", "unemployment": 7.82},
+{"STATE_ID": "24", "unemployment": 8.35},
+{"STATE_ID": "25", "unemployment": 9.1},
+{"STATE_ID": "26", "unemployment": 10.69},
+{"STATE_ID": "27", "unemployment": 11.53},
+{"STATE_ID": "28", "unemployment": 9.29},
+{"STATE_ID": "29", "unemployment": 9.94},
+{"STATE_ID": "30", "unemployment": 9.29},
+{"STATE_ID": "31", "unemployment": 5.45},
+{"STATE_ID": "32", "unemployment": 4.21},
+{"STATE_ID": "33", "unemployment": 4.27},
+{"STATE_ID": "34", "unemployment": 4.09},
+{"STATE_ID": "35", "unemployment": 7.83},
+{"STATE_ID": "36", "unemployment": 8.01},
+{"STATE_ID": "37", "unemployment": 9.34},
+{"STATE_ID": "38", "unemployment": 11.23},
+{"STATE_ID": "39", "unemployment": 7.08},
+{"STATE_ID": "40", "unemployment": 11.22},
+{"STATE_ID": "41", "unemployment": 6.2},
+{"STATE_ID": "42", "unemployment": 9.11},
+{"STATE_ID": "44", "unemployment": 10.42},
+{"STATE_ID": "45", "unemployment": 8.89},
+{"STATE_ID": "46", "unemployment": 11.03},
+{"STATE_ID": "47", "unemployment": 7.35},
+{"STATE_ID": "48", "unemployment": 8.92},
+{"STATE_ID": "49", "unemployment": 7.65},
+{"STATE_ID": "50", "unemployment": 8.01},
+{"STATE_ID": "51", "unemployment": 7.62},
+{"STATE_ID": "53", "unemployment": 7.77},
+{"STATE_ID": "54", "unemployment": 8.49},
+{"STATE_ID": "55", "unemployment": 9.42},
+{"STATE_ID": "56", "unemployment": 7.59}
+];
 
-    <div class="blog-entries">
-        <div class="container">
-            <div class="col-md-9">
-                <div class="blog-posts">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="single-blog-post">
+map.on('load', function() {
 
-                                <div class="text-content">
-                                    <h2>Lab 4</h2>
-                                    <span><a href="#">26 November 2019</a></span>
-                                    <p>
+// Add source for state polygons hosted on Mapbox, based on US Census Data:
+// https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html
+map.addSource("states", { //"units"?
+type: "vector", //type: "geojson",?
+url: "mapbox://mapbox.us_census_states_2015" // "geoJSON/battleOfTheBulge.json"?
+});
 
+var expression = ["match", ["get", "STATE_ID"]]; //"SymbolID"?
 
-                                      <div id="mapid"></div>
-                                      <script src="js/lab_4-Leaflet.js"></script>
+// Calculate color for each state based on the unemployment rate
+data.forEach(function(row) {
+var green = (row["unemployment"] / maxValue) * 255;
+var color = "rgba(" + 0 + ", " + green + ", " + 0 + ", 1)"; //var icon?
+expression.push(row["STATE_ID"], color); //["SymbolID"], icon);?
+});
 
-                                      <br>
-                                      <br>
-                                      <br>
+// Last value is the default, used where there is no data
+expression.push("rgba(0,0,0,0)"); //Image URL?
 
-
-                                      <div id="map"></div>
-                                      <script src="js/lab_4-earthquake.js"></script>
-
-
-                                    </p>
-                                    <div class="tags-share">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <ul class="tags">
-                                                    <li>Tags:</li>
-                                                    <li><a href="#">maps</a>,</li>
-                                                    <li><a href="#">GIS</a>,</li>
-                                                    <li><a href="#">Mapbox GL</a></li>
-                                                </ul>
-                                            </div>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!--BEGINS "CONTACT" pop-up button - BOTTOM RIGHT-->
-        <div class="popup-icon">
-          <button id="modBtn" class="modal-btn"><img src="img/contact-icon.png" alt=""></button>
-        </div>
-
-        <!-- Modal -->
-        <div id="modal" class="modal">
-          <!-- Modal Content -->
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h3 class="header-title">Contact <em>Isaac</em></h3>
-              <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
-            </div>
-            <!-- Modal Body -->
-            <div class="modal-body">
-              <div class="col-md-6 col-md-offset-3">
-                <form id="contact" action="" method="post">
-                    <div class="row">
-                        <div class="col-md-12">
-                          <fieldset>
-                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                          </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                          <fieldset>
-                            <button type="submit" id="form-submit" class="btn">Send Message Now</button>
-                          </fieldset>
-                        </div>
-                        <div id="social">
-                          </br>
-                          </br>
-                          <p> Form Under Construction </p>
-                          <a href="https://www.linkedin.com/in/isaac-vanmechelen/" class="fab fa-linkedin-in fa-2x" target="_blank"></a>
-                          <a href="https://www.facebook.com/IsaacV.Photography/" class="fab fa-facebook-f fa-2x" target="_blank"></a>
-                          <a href="https://www.behance.net/vanmeciv" class="fab fa-behance fa-2x" target="_blank"></a>
-                          <a href="https://github.com/vanmeciv" class="fab fa-github fa-2x" target="_blank"></a>
-                          <a href="https://msgtcohort.slack.com" class="fab fa-slack-hash fa-2x" target="_blank"></a>
-                        </div>
-                    </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    <!--ENDS "CONTACT" pop-up button - BOTTOM RIGHT-->
-<!--BEGINS FOOTER-->
-          <footer>
-              <div class="container-fluid">
-                  <div class="col-md-12">
-                      <p>| &copy; 2019 | Designed by
-                        <a href="https://templatemo.com/tm-520-highway" target="_blank">TemplateMo</a>
-                        |</br>| Cloned by Isaac Van Mechelen
-                        <a href="img/Isaac_Van_Mechelen's_Resume.pdf" class="far fa-file-pdf fa-2x" target="_blank" style="margin: .25em; text-decoration: none; color: #fff;">
-                        </a>|
-                      </p>
-                  </div>
-              </div>
-          </footer>
-<!--ENDS FOOTER-->
+// Add layer from the vector tile source with data-driven style
+map.addLayer({
+"id": "states-join",//??
+"type": "fill",//??
+"source": "states", //"units"?
+"source-layer": "states",//"units"?
+"paint": {//comment out?
+"fill-color": expression//comment out?
+}
+}, 'waterway-label');//comment out?
+});
+</script>
 
 </body>
 </html>
