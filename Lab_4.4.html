@@ -86,7 +86,7 @@ geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(img/icons/' + marker.properties.iconSize.join('/') + '/)';
+    el.style.backgroundImage = 'url(img/icons/' + marker.properties.iconSize.join('/') + '.jpg/)';
     el.style.width = marker.properties.iconSize[0] + 'px';
     el.style.height = marker.properties.iconSize[1] + 'px';
 
