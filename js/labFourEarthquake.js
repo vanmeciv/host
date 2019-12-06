@@ -15,7 +15,7 @@ mapOne.on('load', function () {
           "type": "geojson",
           "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
       });
-    // add custom icon to the map (https://gis.stackexchange.com/questions/179255/mapbox-gl-addlayer-where-are-the-icon-images-coming-from)
+    // add custom icon to the map (https://docs.mapbox.com/mapbox-gl-js/example/add-image/)
     mapOne.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Antu_earthquake.svg/512px-Antu_earthquake.svg.png', function(error, image) {
         if (error) throw error;
         mapOne.addImage('quake', image);
