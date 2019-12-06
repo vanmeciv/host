@@ -33,9 +33,31 @@
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
-var geojson = {
-  type: 'geojson',
-  data: 'geoJSON/cats.json'
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-65.017, -16.457],
+    zoom: 5
+});
+
+map.on('load', function(){
+  map.addSource('contours', {
+    type: 'geojson',
+    data: 'https://cors-anywhere.herokuapp.com/geoJSON/cats.json'
+    });
+
+  var geojson = map.addLayer({
+    id: 'Contours',
+    type: 'circle',
+    source: 'contours'
+  });
+});
+
+
+// var geojson = {
+//   type: 'geojson',
+//   data: 'geoJSON/cats.json'
     // "type": "FeatureCollection",
     // "features": [
     //     {
@@ -81,35 +103,30 @@ var geojson = {
     //         }
     //     }
     // ]
-};
+// };
 
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-65.017, -16.457],
-    zoom: 5
-});
+
 
 // Add custom markers in Mapbox GL JS: https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
 // Add custom icons with Markers: https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/
 
 // add markers to map
-geojson.features.forEach(function(marker) {
-    // create a DOM element for the marker
-    var el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = 'url(img/icons/' + marker.properties.iconSize.join('/') + '/)';
-    el.style.width = marker.properties.iconSize[0] + 'px';
-    el.style.height = marker.properties.iconSize[1] + 'px';
-
-    el.addEventListener('click', function() {
-        window.alert(marker.properties.message);
-    });
-
-    // add marker to map
-    new mapboxgl.Marker(el)
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
+// geojson.features.forEach(function(marker) {
+//     // create a DOM element for the marker
+//     var el = document.createElement('div');
+//     el.className = 'marker';
+//     el.style.backgroundImage = 'url(img/icons/' + marker.properties.iconSize.join('/') + '/)';
+//     el.style.width = marker.properties.iconSize[0] + 'px';
+//     el.style.height = marker.properties.iconSize[1] + 'px';
+//
+//     el.addEventListener('click', function() {
+//         window.alert(marker.properties.message);
+//     });
+//
+//     // add marker to map
+//     new mapboxgl.Marker(el)
+//         .setLngLat(marker.geometry.coordinates)
+//         .addTo(map);
 
 // OR Could I Create layer and match property from source using icon: https://docs.mapbox.com/mapbox-gl-js/example/data-join/
 //
@@ -141,7 +158,7 @@ geojson.features.forEach(function(marker) {
 // }
 // }, 'waterway-label');
 
-});
+// });
 </script>
 
 </body>
