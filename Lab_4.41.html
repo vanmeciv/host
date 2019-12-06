@@ -25,55 +25,62 @@
 <div id='map'></div>
 
 <script>
+// In past labs, I've injected json data through a function...? Can this be done here?
+// mapOne.addSource('earthquakes', {
+//         "type": "geojson",
+//         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
+//     });
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var geojson = {
-  type: 'geojson',
-  data: 'geoJSON/cats.json'
-    // "type": "FeatureCollection",
-    // "features": [
-    //     {
-    //         "type": "Feature",
-    //         "properties": {
-    //             "message": "Foo",
-    //             "iconSize": [60, 60]
-    //         },
-    //         "geometry": {
-    //             "type": "Point",
-    //             "coordinates": [
-    //                 -66.324462890625,
-    //                 -16.024695711685304
-    //             ]
-    //         }
-    //     },
-    //     {
-    //         "type": "Feature",
-    //         "properties": {
-    //             "message": "Bar",
-    //             "iconSize": [50, 50]
-    //         },
-    //         "geometry": {
-    //             "type": "Point",
-    //             "coordinates": [
-    //                 -61.2158203125,
-    //                 -15.97189158092897
-    //             ]
-    //         }
-    //     },
-    //     {
-    //         "type": "Feature",
-    //         "properties": {
-    //             "message": "Baz",
-    //             "iconSize": [40, 40]
-    //         },
-    //         "geometry": {
-    //             "type": "Point",
-    //             "coordinates": [
-    //                 -63.29223632812499,
-    //                 -18.28151823530889
-    //             ]
-    //         }
-    //     }
-    // ]
+  // type: 'geojson',
+  // data: 'geoJSON/cats.json'
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Foo",
+                "iconSize": [60, 60]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.324462890625,
+                    -16.024695711685304
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Bar",
+                "iconSize": [50, 50]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -61.2158203125,
+                    -15.97189158092897
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "message": "Baz",
+                "iconSize": [40, 40]
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -63.29223632812499,
+                    -18.28151823530889
+                ]
+            }
+        }
+    ]
 };
 
 var map = new mapboxgl.Map({
@@ -82,6 +89,9 @@ var map = new mapboxgl.Map({
     center: [-65.017, -16.457],
     zoom: 5
 });
+
+// Add custom markers in Mapbox GL JS: https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
+// Add custom icons with Markers: https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/
 
 // add markers to map
 geojson.features.forEach(function(marker) {
@@ -100,6 +110,37 @@ geojson.features.forEach(function(marker) {
     new mapboxgl.Marker(el)
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
+
+// OR Could I Create layer and match property from source using icon: https://docs.mapbox.com/mapbox-gl-js/example/data-join/
+//
+// map.addSource("states", { //"units"?
+//     type: "vector", //type: "geojson",?
+//     url: "mapbox://mapbox.us_census_states_2015" // "geoJSON/battleOfTheBulge.json"?
+// });
+//
+// var expression = ["match", ["get", "STATE_ID"]]; //"SymbolID"?
+//
+// // Calculate color for each state based on the unemployment rate
+// data.forEach(function(row) {
+// var green = (row["unemployment"] / maxValue) * 255;
+// var color = "rgba(" + 0 + ", " + green + ", " + 0 + ", 1)"; ? //var icon?
+// expression.push(row["STATE_ID"], color); //["SymbolID"], icon);?
+// });
+//
+// // Last value is the default, used where there is no data
+// expression.push("rgba(0,0,0,0)"); //Image URL?
+//
+// // Add layer from the vector tile source with data-driven style
+// map.addLayer({
+// "id": "states-join", //??
+// "type": "fill", //symbol?
+// "source": "states", //"units"?
+// "source-layer": "states",//"units"?
+// "paint": { //layout?
+// "fill-color": expression //icon-image?
+// }
+// }, 'waterway-label');
+
 });
 </script>
 
