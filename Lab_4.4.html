@@ -86,8 +86,7 @@ geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.SymbolID;
-
+    el.style.backgroundImage = 'url(img/icons/' + marker.properties.SymbolID;
 
     el.addEventListener('click', function() {
         window.alert(marker.properties.message);
