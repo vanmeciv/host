@@ -81,7 +81,9 @@ var map = new mapboxgl.Map({
     zoom: 5
 });
 
-// add markers to map
+// Add custom markers in Mapbox GL JS: https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
+// Add custom icons with Markers: https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/
+// Create layer and match property from source using icon: https://docs.mapbox.com/mapbox-gl-js/example/data-join/
 geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
