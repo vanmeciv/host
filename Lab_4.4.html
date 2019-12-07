@@ -33,7 +33,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Foo",
-                "SymbolID": ["img/icons/1.png"]
+                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/1.png"]
             },
             "geometry": {
                 "type": "Point",
@@ -47,7 +47,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Bar",
-                "SymbolID": ["img/icons/2.png"]
+                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/2.png"]
             },
             "geometry": {
                 "type": "Point",
@@ -61,7 +61,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Baz",
-                "SymbolID": ["img/icons/3.png"]
+                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/3.png"]
             },
             "geometry": {
                 "type": "Point",
@@ -88,7 +88,7 @@ geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = 'url(https://raw.githubusercontent.com/vanmeciv/host/master/' + marker.properties.SymbolID + '/)';
+    el.style.backgroundImage = marker.properties.SymbolID;
 
 
     el.addEventListener('click', function() {
