@@ -9,7 +9,7 @@ https://history.army.mil/books/wwii/11-4/symbols.htm
 
 if SymbolID === 
 1 or 8===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry.svg [Friendly_Unit_Infantry.png]
-2===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg ________________
+2===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg [Neutral_Unit_Armor_Solid.png]
 3===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour.svg (Friendly Armor) [Friendly_Unit_Armor.png]
 4===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Hostile).svg [Hostile_Unit_Infantry_Solid.png]
 5===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Hostile).svg [Hostile_Unit_Armor_Solid.png]
