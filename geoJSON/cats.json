@@ -1,10 +1,10 @@
-{"type":"FeatureCollection",
+{"type": "FeatureCollection",
 "features": [
     {
         "type": "Feature",
         "properties": {
             "message": "Foo",
-            "iconSize": [60, 60]
+            "SymbolID": [0]
         },
         "geometry": {
             "type": "Point",
@@ -18,7 +18,7 @@
         "type": "Feature",
         "properties": {
             "message": "Bar",
-            "iconSize": [50, 50]
+            "SymbolID": [1]
         },
         "geometry": {
             "type": "Point",
@@ -32,7 +32,7 @@
         "type": "Feature",
         "properties": {
             "message": "Baz",
-            "iconSize": [40, 40]
+            "SymbolID": [2]
         },
         "geometry": {
             "type": "Point",
