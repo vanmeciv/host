@@ -33,7 +33,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Foo",
-                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/1.png"]
+                "SymbolID": [0]
             },
             "geometry": {
                 "type": "Point",
@@ -47,7 +47,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Bar",
-                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/2.png"]
+                "SymbolID": [1]
             },
             "geometry": {
                 "type": "Point",
@@ -61,7 +61,7 @@ var geojson = {
             "type": "Feature",
             "properties": {
                 "message": "Baz",
-                "SymbolID": ["https://raw.githubusercontent.com/vanmeciv/host/master/img/icons/3.png"]
+                "SymbolID": [2]
             },
             "geometry": {
                 "type": "Point",
@@ -81,15 +81,12 @@ var map = new mapboxgl.Map({
     zoom: 5
 });
 
-// Add custom markers in Mapbox GL JS: https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
-// Add custom icons with Markers: https://docs.mapbox.com/mapbox-gl-js/example/custom-marker-icons/
-// Create layer and match property from source using icon: https://docs.mapbox.com/mapbox-gl-js/example/data-join/
+// add markers to map
 geojson.features.forEach(function(marker) {
     // create a DOM element for the marker
     var el = document.createElement('div');
     el.className = 'marker';
-    el.style.backgroundImage = marker.properties.SymbolID;
-
+    el.style.backgroundImage = 'url(https://vanmeciv.github.io/host/img/icons' + marker.properties.SymbolID + '.png)';
 
     el.addEventListener('click', function() {
         window.alert(marker.properties.message);
