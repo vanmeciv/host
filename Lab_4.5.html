@@ -16,15 +16,20 @@
 .marker {
     display: block;
     border: none;
-    border-radius: 50%;
     cursor: pointer;
-    padding: 0;
+    padding: 4.55%
 }
 </style>
 
 <div id='map'></div>
-
-<script>
+<script src="js/cats.js">
+var geojson =
+  map.addSource('units', {
+        "type": "geojson",
+        "data": "geoJSON/battleOfTheBulge.json"
+    });
+</script>
+<!-- <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var geojson = {
     "type": "FeatureCollection",
@@ -93,7 +98,7 @@ geojson.features.forEach(function(marker) {
         .setLngLat(marker.geometry.coordinates)
         .addTo(map);
 });
-</script>
+</script> -->
 
 </body>
 </html>
