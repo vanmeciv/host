@@ -26,9 +26,28 @@
           mapTypeId: 'terrain'
         });
         // NOTE: This uses cross-domain XHR, and may not work on older browsers.
-      map.data.loadGeoJson(
-          'https://vanmeciv.github.io/host/geoJSON/battleOfTheBulge.json');
+    var geojson =  map.data.loadGeoJson(
+          'geoJSON/battleOfTheBulge.json');
       }
+
+      var markerCollection = map.data.addGeoJson(geoJson);
+  for (var i = 0, length = markerCollection.length; i < length; i++) {
+    var feature = markerCollection[i];
+    debugger;
+    if (feature.getProperty('icon')) {
+      map.data.setStyle(function(feature) {
+        return {
+          icon: feature.getProperty('icon')
+        };
+      });
+    }
+  }
+
+      // create a timeslider: https://code.google.com/archive/p/timemap/
+      // https://stackoverflow.com/questions/26683375/loading-json-into-timemap
+
+
+
 
       //   // Create a <script> tag and set the USGS URL as the source.
       //   var script = document.createElement('script');
@@ -40,16 +59,7 @@
 
       // Loop through the results array and place a marker for each
       // set of coordinates.
-      window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
-      }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKkFd761EWHZySFBmGiSaksxwn4zDPIYI&callback=initMap">
