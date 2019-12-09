@@ -1588,3 +1588,8 @@ iframe.melvin {
 #quote {
   color: #fff
 }
+
+#battlesMap {
+  height: 45vh;
+  z-index: 0;
+}
