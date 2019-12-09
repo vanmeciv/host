@@ -47,8 +47,10 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
       // var description = e.features[0].properties.title;
       var year = e.features[0].properties.name.slice(-4);
       var brief = e.features[0].properties.description.slice(0,50);
-      var myString = e.features[0].properties.description
-      var url = myString.substring(myString.indexOf(') (')+1)
+      // var myString = e.features[0].properties.description
+      // var myurl = myString.substring(myString.indexOf(') (')+1)
+      var str = e.features[0].properties.description
+      var url = str.split(/https(.+)/)[-5];
 
       var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + url + ">Click Here</a>";
       //3. make the popup
