@@ -1445,7 +1445,8 @@ footer a:hover {
 }
 /* generic style for initial maps and testing */
 #map {
-  height: 45em;
+  height: 60em;
+  width: 64em;
   z-index: 0;
 }
 
