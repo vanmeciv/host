@@ -47,10 +47,9 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
       // var description = e.features[0].properties.title;
       var year = e.features[0].properties.name.slice(-4);
       var brief = e.features[0].properties.description.slice(0,50);
-      var myString = e.features[0].properties.description.slice("https")
-
-
-      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + myString + ">Click Here</a>";
+      var myString = e.features[0].properties.name;
+      var url = myString.split(/"http"(.+)/)[1];
+      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + url + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)
