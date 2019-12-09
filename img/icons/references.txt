@@ -5,6 +5,8 @@ https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols
 https://en.wikipedia.org/wiki/NATO_Joint_Military_Symbology
 https://history.army.mil/books/wwii/11-4/symbols.htm
 
+https://www.google.com/maps/d/u/0/viewer?msa=0&mid=1BE_D463wRR95BW8Kkm02hgja4kg&ll=54.83798503540585%2C18.780638944896168&z=3
+
 
 
 if SymbolID === 
