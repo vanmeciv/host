@@ -95,41 +95,31 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
   </head>
   <body>
-    <style>
-    .marker {
-        display: block;
-        border: none;
-        cursor: pointer;
-        padding: 4.55%
-    }
-    </style>
-
     <div id='map'></div>
 
+    <div class="map-overlay top">
+    <div class="map-overlay-inner">
+    <h2>Campaign Movement</h2>
+    <label id="month"></label>
+    <input id="slider" type="range" min="0" max="11" step="1" value="0" />
+    </div>
+    <div class="map-overlay-inner">
+    <div id="legend" class="legend">
+    <div class="bar"></div>
+    <div>Magnitude (m)</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="js/cats.js">
+    var geojson =
+      map.addSource('units', {
+            "type": "geojson",
+            "data": "geoJSON/battleOfTheBulge.json"
+        });
+    </script>
 
-  <div class="map-overlay top">
-  <div class="map-overlay-inner">
-  <h2>Campaign Movement</h2>
-  <label id="month"></label>
-  <input id="slider" type="range" min="0" max="11" step="1" value="0" />
-  </div>
-  <div class="map-overlay-inner">
-  <div id="legend" class="legend">
-  <div class="bar"></div>
-  <div>Magnitude (m)</div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <script src="js/cats.js">
-  var geojson =
-    map.addSource('units', {
-          "type": "geojson",
-          "data": "geoJSON/battleOfTheBulge.json"
-      });
-  </script>
-
-  <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
+    <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
                                     <div class="tags-share">
                                         <div class="row">
                                             <div class="col-md-6">
