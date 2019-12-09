@@ -1591,5 +1591,11 @@ iframe.melvin {
 
 #battlesMap {
   height: 65vh;
-  z-index: 0;
+  width: 64em;
+
+}
+
+#battleOfTheBulge {
+  height: 65vh;
+  width: 64em;
 }
