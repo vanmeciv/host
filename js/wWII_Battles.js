@@ -17,7 +17,7 @@ battlesMap.on('load', function(){
   //add a source layer for earthquakes
   battlesMap.addSource('wWII_Battles', {
         "type": "geojson",
-        "data": "geoJSON/wWWII_Battles.geojson"
+        "data": "geoJSON/wWII_Battles.geojson"
     });
 
     // add the icons to the map
@@ -45,22 +45,15 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
       // var description = e.features[0].properties.title;
-      var year = e.features[0].properties.year.slice(0,4);
-      var description = "<h4>Battle</h4><p>Name: " + e.features[0].properties.name + "<br> Description: " + e.features[0].properties.description + "</p>";
+      var year = e.features[0].properties.name.slice(-4);
+      var brief = e.features[0].properties.description.slice(0,50);
+      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)
               .setHTML(description)
-              .addTo(mapTwo);
+              .addTo(battlesMap);
 });
-
-// style: function(feature){
-//   var tsunami,
-//     wave = feature.properties.tsunami;
-//       if (wave === 0) polyColor = "#99d594";
-//       else polyColor = "ffffff";
-//     return {color: "#ffffff", weight: 1.5, fillColor: polyColor, fillOpacity: 0.6};
-// }
 
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
