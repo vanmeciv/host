@@ -95,9 +95,18 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
   </head>
   <body>
+    <style>
+    .marker {
+        display: block;
+        border: none;
+        cursor: pointer;
+        padding: 4.55%
+    }
+    </style>
+
+    <div id='map'></div>
 
 
-  <div id="map">
   <div class="map-overlay top">
   <div class="map-overlay-inner">
   <h2>Campaign Movement</h2>
@@ -112,8 +121,14 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
   </div>
   </div>
   </div>
+  <script src="js/cats.js">
+  var geojson =
+    map.addSource('units', {
+          "type": "geojson",
+          "data": "geoJSON/battleOfTheBulge.json"
+      });
+  </script>
 
-  <script src="js/testing.js"></script>
   <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
                                     <div class="tags-share">
                                         <div class="row">
