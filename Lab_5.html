@@ -106,21 +106,37 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
     <br>
     <br>
     <h2>Battle of Ardennes (a.k.a. The Battle of the Bulge)</h2>
-    <div id="battleOfTheBulge"></div>
+    <div id="battleOfTheBulge">
+    <div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+    <h2>Campaign Timeline</h2>
+    <label id='month'></label>
+    <input id='slider' type='range' min='0' max='11' step='1' value='0' />
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     <script src="js/ardennes.js">
     var geojson =
       map.addSource('units', {
             "type": "geojson",
             "data": "geoJSON/battleOfTheBulge.json"
         });
+
+        map.addSource('units', {
+        'type': 'geojson',
+        data: data
+        });
+
     </script>
 
     <p>
       <h2>A Memorial to my Grandfather (11/16/2019)</h3>
       <i id="quote">“This would ever be a famous American victory, and the eyes of the world would long gaze at the heroic men who had fallen there.” - Winston Churchill</i>
-      <object data="Melvin_O_Rasmussen_working" type="application/pdf">
+      <!-- <object data="Melvin_O_Rasmussen_working" type="application/pdf">
         <iframe class="melvin" src="img/Melvin_O_Rasmussen_working.pdf"></iframe>
-      </object>
+      </object> -->
 
     </p>
 
