@@ -2,7 +2,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY
 var battlesMap = new mapboxgl.Map({
 container: 'battlesMap',
 center: [5.443726,50.04303],
-zoom: 8,
+zoom: 6,
 pitch: 55,
 bearing: 45,
 attributionControl: false,
@@ -34,7 +34,7 @@ this.context = canvas.getContext('2d');
 
 // called once before every frame where the icon will be used
 render: function() {
-var duration = 1000;
+var duration = 10000000;
 var t = (performance.now() % duration) / duration;
 
 var radius = size / 2 * 0.3;
