@@ -95,7 +95,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
   </head>
   <body>
-
+    <p>
     <h2>Europe & Africa Battles (1943-1945)</h2>
     <div id="battlesMap"></div>
     <script src="js/wWII_Battles.js"></script>
@@ -114,30 +114,163 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
             "data": "geoJSON/battleOfTheBulge.json"
         });
     </script>
+<p>This map depicts all units over the time span of the Ardennes Campaign (Battle of the Bulge - December 16, 1944 - January 25, 1945). Each element is a Division level echelon, hence the "XX" displayed over the unit type icon. If you click on an element icon, you will get a popup window with the name of the unit.
 
-    <p>
+
+
+  <h2>Legend:</h2>
+
+  <div class="legendrow">
+    <div class="column" style="background-color:#aaa;">
+      <!-- <h2>Column 1</h2> -->
+        <tr>
+          <td>Friendly</td>
+          <td>Infantry</td>
+          <th><div class="unitimage"><img src="img/icons/1.png" alt="Friendly Infantry Division"></div></th>
+        </tr>
+        <tr>
+          <td>Neutral</td>
+          <td>Armor</td>
+          <th><div class="unitimage"><img src="img/icons/2.png" alt="Neutral Armor Division"></div></th>
+        </tr>
+        <tr>
+          <td>Friendly</td>
+          <td>Armor</td>
+          <th><div class="unitimage"><img src="img/icons/3.png" alt="Friendly Armor Division"></div></th>
+        </tr>
+        <tr>
+          <td>Hostile</td>
+          <td>Infantry</td>
+          <td><div class="unitimage"><img src="img/icons/4.png" alt="Neutral Armor Division"></div></td>
+        </tr>
+
+    </div>
+    <div class="column" style="background-color:#bbb;">
+      <!-- <h2>Column 2</h2> -->
+
+        <tr>
+          <td>Hostile</td>
+          <td>Armor</td>
+          <td><div class="unitimage"><img src="img/icons/5.png" alt="Hostile Armor Division"></div></td>
+        </tr>
+        <tr>
+          <td>Hostile</td>
+          <td>Airborne</td>
+          <td><div class="unitimage"><img src="img/icons/6.png" alt="Hostile Airborne Division"></div></td>
+        </tr>
+        <tr>
+          <td>Friendly</td>
+          <td>Air Defense</td>
+          <td><div class="unitimage"><img src="img/icons/7.png" alt="Friendly Air Defense Division"></div></td>
+        </tr>
+        <tr>
+          <td>Neutral</td>
+          <td>Infantry</td>
+          <td><div class="unitimage"><img src="img/icons/9.png" alt="Neutral Infantry Division"></div></td>
+        </tr>
+
+
+        <!-- <tr>
+          <td>Neutral (POLAND) - Maybe Orange or Yellow</td>
+          <td>Armor</td>
+          <td><img src="img/icons/11.png" alt="Neutral/POLAND Armor"></td>
+        </tr> -->
+        <!-- <tr>
+          <td>Neutral (POLAND) - Maybe Orange or Yellow</td>
+          <td>Infantry</td>
+          <td><img src="img/icons/12.png" alt="Neutral/POLAND Infantry"></td>
+        </tr> -->
+
+    </div>
+    <div class="column" style="background-color:#ccc;">
+      <!-- <h2>Column 3</h2> -->
+      <tr>
+        <td>Unknown</td>
+        <td>Air Defense</td>
+        <td><div class="unitimage"><img src="img/icons/10.png" alt="Unknown Air Defense"></div></td>
+      </tr>
+        <tr>
+          <td>Friendly</td>
+          <td>Airborne</td>
+          <td><div class="unitimage"><img src="img/icons/13.png" alt="82nd Airborne Division"></div></td>
+        </tr>
+        <tr>
+          <td>Friendly</td>
+          <td>Airborne</td>
+          <td><div class="unitimage"><img src="img/icons/14.png" alt="101st Airborne Division"></div></td>
+        </tr>
+        <!-- <tr>
+          <td>Neutral (POLAND) - Maybe Orange or Yellow</td>
+          <td>Infantry</td>
+          <td><img src="img/icons/15.png" alt="Neutral/POLAND Infantry"></td>
+        </tr> -->
+        <tr>
+          <td>Friendly</td>
+          <td>Airborne</td>
+          <td><div class="unitimage"><img src="img/icons/16.png" alt="17th Airborne Division"></div></td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!-- 1 or 8===[Friendly Infantry Division]
+2===[Neutral Armor Division]
+3===[Friendly Armor Division]
+4===[Hostile Infantry Division]
+5===[Hostile Armor Division]
+6===[Hostile Airborne Division]
+7===[Friendly Air Defense Division]
+9===[Neutral Infantry Division]
+10===[Unknown Air Defense Division]
+11===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg (POLAND Armor) MAYBE ORANGE???
+12 or 15===Neutral Infantry (POLAND Infantry) MAYBE ORANGE or YELLOW???
+13===[82nd Airborne Division]
+14===[101st Airborne Division]
+16===[17th Airborne Division]
+17===Neutral Infantry Division] -->
+
+
+
+  <p>
+
+-------------------------------------
       <h2>A Memorial to my Grandfather (11/16/2019)</h3>
       <i id="quote">“This would ever be a famous American victory, and the eyes of the world would long gaze at the heroic men who had fallen there.” - Winston Churchill</i>
-      <!-- <object data="Melvin_O_Rasmussen_working" type="application/pdf">
+      <object data="Melvin_O_Rasmussen_working" type="application/pdf">
         <iframe class="melvin" src="img/Melvin_O_Rasmussen_working.pdf"></iframe>
-      </object> -->
+      </object>
+
+
+-------------------------------------
+
+    <a href="https://vanmeciv.github.io/host/img/Lab_5.pdf" target="_blank"><h3>Lab 5 Instructions</h3></a>
+
 
     </p>
-
     <script src="https://d3js.org/d3.v3.min.js" charset='utf-8'></script>
-                                    <div class="tags-share">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <ul class="tags">
-                                                    <li>Tags:</li>
-                                                    <li><a href="#">maps</a>,</li>
-                                                    <li><a href="#">GIS</a>,</li>
-                                                    <li><a href="#">Mapbox GL</a></li>
-                                                </ul>
-                                            </div>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <div class="tags-share">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="tags">
+                                    <li>Tags:</li>
+                                    <li><a href="#">maps</a>,</li>
+                                    <li><a href="#">GIS</a>,</li>
+                                    <li><a href="#">Mapbox GL</a></li>
+                                </ul>
+                            </div>
+                                </ul>
+                            </div>
+                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -1599,3 +1599,29 @@ iframe.melvin {
   height: 65vh;
   width: 64em;
 }
+#unitlegendrow{
+  height: 2.5em;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  z-index: 0;
+}
+
+/* Clear floats after the columns */
+.legendrow:after {
+  content: "";
+  display: table;
+  clear: both;
+  z-index: 0;
+
+}
+.unitimage{
+  width: 35%;
+}
