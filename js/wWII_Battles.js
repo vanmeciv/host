@@ -1,8 +1,8 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var battlesMap = new mapboxgl.Map({
 container: 'battlesMap',
-center: [15.03,51.70],
-zoom: 4,
+center: [5.443726,50.04303],
+zoom: 8,
 pitch: 55,
 bearing: 45,
 attributionControl: false,
@@ -13,26 +13,7 @@ battlesMap.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
 
 //on map load, run function to load the geojson
-battlesMap.on('load', function(){
-  //add a source layer for earthquakes
-  battlesMap.addSource('wWII_Battles', {
-        "type": "geojson",
-        "data": "geoJSON/wWII_Battles.geojson"
-    });
 
-    // add the icons to the map
-    battlesMap.addLayer({
-      "id":"wWII_Battles",
-      "type":"symbol",
-      "source":"wWII_Battles",
-      "layout": {
-          "icon-image": "fire-station-11",
-          "icon-size":1.5,
-      },
-      "paint": {}
-    });
-
-});
 
 var size = 200;
 
@@ -87,10 +68,21 @@ return true;
 }
 };
 
+battlesMap.on('load', function(){
+
+  battlesMap.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+  //add a source layer for battles
+  battlesMap.addSource('wWII_Battles', {
+        "type": "geojson",
+        "data": "geoJSON/wWII_Battles.geojson"
+    });
+
+
+
+
 battlesMap.addLayer({
-  "id":"wWII_Battles",
+  "id":"bulgeDot",
   "type":"symbol",
-  "source":"wWII_Battles",
       "source": {
           "type": "geojson",
           "data": {
@@ -99,8 +91,8 @@ battlesMap.addLayer({
                   "type": "Feature",
                   "geometry": {
                       "type": "Point",
-                      "coordinates": [36.142273,
-                      52.940363]
+                      "coordinates": [5.443726,
+                      50.04303]
                     }
               }]
           }
@@ -111,7 +103,18 @@ battlesMap.addLayer({
 });
 
 
-
+// add the icons to the map
+battlesMap.addLayer({
+  "id":"wWII_Battles",
+  "type":"symbol",
+  "source":"wWII_Battles",
+  "layout": {
+      "icon-image": "fire-station-11",
+      "icon-size":1.5,
+  },
+  "paint": {}
+});
+});
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
 battlesMap.on('click', 'wWII_Battles', function (e) {
