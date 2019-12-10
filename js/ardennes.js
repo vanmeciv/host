@@ -17,8 +17,6 @@ geojson.features.forEach(function(marker) {
     var el = document.createElement('div');
     el.className = 'marker';
     el.style.backgroundImage = 'url(img/icons' + '/' + marker.properties.SymbolID + '.png)';
-    el.addEventListener('click', function() {
-        window.alert(marker.properties.message);
     });
     // add marker to map
     new mapboxgl.Marker(el)
