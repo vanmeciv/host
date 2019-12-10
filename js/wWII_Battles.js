@@ -1,12 +1,12 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
 var battlesMap = new mapboxgl.Map({
 container: 'battlesMap',
-center: [5.443726,50.04303],
-zoom: 6,
-pitch: 55,
-bearing: 45,
+center: [6.01,41.65],
+zoom: 4.3,
+pitch: 60,
+bearing: 33,
 attributionControl: false,
-style: 'mapbox://styles/isaacv/ck3f64eev0mam1cpd002nl27y'
+style: 'mapbox://styles/isaacv/ck4063rrs2rs11crt2k4tozrm'
 });
 battlesMap.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
@@ -146,7 +146,7 @@ battlesMap.on('mouseleave', 'wWII_Battles', function () {
 battlesMap.getCanvas().style.cursor = '';
 });
 
-// // Reset the extent of the map to the original center/zoom (Button Click)
-// document.getElementById('fit').addEventListener('click', function() {
-// battlesMap.fitBounds([[ -122, 45 ], [ -119, 49 ]]);
-// });
+// Reset the extent of the map to the original center/zoom (Button Click)
+document.getElementById('fit').addEventListener('click', function() {
+battlesMap.fitBounds([[ 5.443726,50.04303 ], [ 5.443726,50.04303 ]]);
+});
