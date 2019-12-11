@@ -144,9 +144,11 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
           // or alternatively
           // return text.replace(urlRegex, '<a href="$1">$1</a>')
       }
-      var text = "Find me at http://www.example.com and also at http://stackoverflow.com";
 
-      var url = e.features[0].properties.description.slice("/",-1)
+      var text = e.features[0].properties.description;
+      var html = urlify(text);
+
+      // var url = e.features[0].properties.description.slice("/",-1)
       var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + text + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()

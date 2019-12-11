@@ -5,3 +5,17 @@ regex
 \/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?
 
 https://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript
+
+
+
+function urlify(text) {
+          var urlRegex = /(([a-z]+:\/\/)?(([a-z0-9\-]+\.)+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi
+          return text.replace(urlRegex, function(url) {
+              return '<a href="' + url + '">' + url + '</a>';
+          })
+          // or alternatively
+          // return text.replace(urlRegex, '<a href="$1">$1</a>')
+      }
+      
+      var text = "Find me at http://www.example.com and also at http://stackoverflow.com";
+      var html = urlify(text);
