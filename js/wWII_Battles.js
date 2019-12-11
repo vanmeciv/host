@@ -133,10 +133,21 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
       // var description = e.features[0].properties.title;
-      var year = e.features[0].properties.name.slice(-4);
+      // var year = e.features[0].properties.name.slice(-4);
       var brief = e.features[0].properties.description.slice(0,50);
-      var url = e.features[0].properties.description.slice("http"[1])
-      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + url + ">Click Here</a>";
+
+      function urlify(text) {
+          var urlRegex = /(([a-z]+:\/\/)?(([a-z0-9\-]+\.)+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/gi
+          return text.replace(urlRegex, function(url) {
+              return '<a href="' + url + '">' + url + '</a>';
+          })
+          // or alternatively
+          // return text.replace(urlRegex, '<a href="$1">$1</a>')
+      }
+      var text = "Find me at http://www.example.com and also at http://stackoverflow.com";
+
+      var url = e.features[0].properties.description.slice("/",-1)
+      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + text + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)
