@@ -1,0 +1,7 @@
+https://www.regextester.com/96249:
+
+regex
+
+\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?
+
+https://stackoverflow.com/questions/1500260/detect-urls-in-text-with-javascript
