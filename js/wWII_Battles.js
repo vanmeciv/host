@@ -70,6 +70,8 @@ return true;
 //on map load, run function to load the geojson
 battlesMap.on('load', function(){
 
+
+
   battlesMap.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
 
 battlesMap.addLayer({
@@ -95,23 +97,32 @@ battlesMap.addLayer({
   });
 });
 
-//add a source layer for battles
-battlesMap.addSource('wWII_Battles', {
-      "type": "geojson",
-      "data": "geoJSON/wWII_Battles.geojson"
+  battlesMap.on('load', function(){
+
+  //add a source layer for battles
+  battlesMap.addSource('wWII_Battles', {
+        "type": "geojson",
+        "data": "geoJSON/wWII_Battles.geojson"
+    });
+
+
+  // add the icons to the map
+  battlesMap.addLayer({
+    "id":"wWII_Battles",
+    "type":"symbol",
+    "source":"wWII_Battles",
+    "layout": {
+        "icon-image": "fire-station-11",
+        "icon-size":1.5,
+    },
+    "paint": {}
   });
 
-// add the icons to the map
-battlesMap.addLayer({
-  "id":"wWII_Battles",
-  "type":"symbol",
-  "source":"wWII_Battles",
-  "layout": {
-      "icon-image": "fire-station-11",
-      "icon-size":1.5,
-  },
-  "paint": {}
 });
+
+
+
+
 
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/

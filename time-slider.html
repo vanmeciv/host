@@ -1,184 +1,198 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset='utf-8' />
-  <title>NYC vehicle collisions</title>
-  <meta name='robots' content='noindex, nofollow'>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
-  }
-
-  #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-  h1 {
-    font-size: 20px;
-    line-height: 30px;
-  }
-
-  h2 {
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 10px;
-  }
-
-  a {
-    text-decoration: none;
-    color: #2DC4B2;
-  }
-
-  #console {
-    position: absolute;
-    margin: 10px;
-    width: 240px;
-    background-color: white;
-    padding: 10px 20px;
-  }
-
-  .session {
-    margin-bottom: 20px;
-  }
-
-  .row {
-    height: 12px;
-    width: 100%;
-  }
-
-  .colors {
-    background: linear-gradient(to right, #2DC4B2, #3BB3C3, #669EC4, #8B88B6, #A2719B, #AA5E79);
-    margin-bottom: 5px;
-  }
-
-  .label {
-    width: 15%;
-    display: inline-block;
-    text-align: center;
-  }
-  </style>
+<meta charset="utf-8" />
+<title>Create a time slider</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; };
+</style>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
-
 <body>
-  <div id='map'></div>
-  <div id='console'>
-    <h1>Motor vehicle collisions</h1>
-    <p>Data: <a href='https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95'>Motor vehicle collision injuries and death</a> in NYC, Jan 2016</p>
-    <div class='session'>
-      <h2>Casualty</h2>
-      <div class='row colors'>
-      </div>
-      <div class='row labels'>
-        <div class='label'>0</div>
-        <div class='label'>1</div>
-        <div class='label'>2</div>
-        <div class='label'>3</div>
-        <div class='label'>4</div>
-        <div class='label'>5+</div>
-      </div>
-    </div>
-    <div class='session'>
-      <h2>Hour: <label id='active-hour'>12PM</label></h2>
-      <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
-    </div>
-    <div class='session'>
-      <h2>Day of the week</h2>
-      <div class='row' id='filters'>
-        <input id='all' type='radio' name='toggle' value='all' checked='checked'>
-        <label for='all'>All</label>
-        <input id='weekday' type='radio' name='toggle' value='weekday'>
-        <label for='weekday'>Weekday</label>
-        <input id='weekend' type='radio' name='toggle' value='weekend'>
-        <label for='weekend'>Weekend</label>
-      </div>
-    </div>
-  </div>
-  <script>
-  mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-74.0059, 40.7128],
-    zoom: 11
-  });
+<style>
+    .map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: 25%;
+        top: 0;
+        left: 0;
+        padding: 10px;
+    }
 
-  map.on('load', function() {
+    .map-overlay .map-overlay-inner {
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 
-    var filterHour = ['==', ['number',['get', 'Hour']], 12];
-    var filterDay = ['!=', ['string',['get', 'Day']], 'placeholder'];
+    .map-overlay h2 {
+        line-height: 24px;
+        display: block;
+        margin: 0 0 10px;
+    }
 
-    map.addLayer({
-      id: 'collisions',
-      type: 'circle',
-      source: {
-        type: 'geojson',
-        data: 'geoJSON/collisions1601.geojson' // replace this with the url of your own geojson
-      },
-      paint: {
-        'circle-radius': [
-          'interpolate',
-          ['linear'],
-          ['number', ['get', 'Casualty']],
-          0, 4,
-          5, 24
-        ],
-        'circle-color': [
-          'interpolate',
-          ['linear'],
-          ['number', ['get', 'Casualty']],
-          0, '#2DC4B2',
-          1, '#3BB3C3',
-          2, '#669EC4',
-          3, '#8B88B6',
-          4, '#A2719B',
-          5, '#AA5E79'
-        ],
-        'circle-opacity': 0.8
-      },
-      'filter': ['all', filterHour, filterDay]
+    .map-overlay .legend .bar {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #fca107, #7f3121);
+    }
+
+    .map-overlay input {
+        background-color: transparent;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        cursor: ew-resize;
+    }
+</style>
+
+<div id="map"></div>
+
+<div class="map-overlay top">
+    <div class="map-overlay-inner">
+        <h2>Significant earthquakes in 2015</h2>
+        <label id="month"></label>
+        <input id="slider" type="range" min="0" max="11" step="1" value="0" />
+    </div>
+    <div class="map-overlay-inner">
+        <div id="legend" class="legend">
+            <div class="bar"></div>
+            <div>Magnitude (m)</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [31.4606, 20.7927],
+        zoom: 0.5
     });
 
-    // update hour filter when the slider is dragged
-    document.getElementById('slider').addEventListener('input', function(e) {
-      var hour = parseInt(e.target.value);
-      // update the map
-      filterHour = ['==', ['number', ['get', 'Hour']], hour];
-      map.setFilter('collisions', ['all', filterHour, filterDay]);
+    var months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
 
-      // converting 0-23 hour to AMPM format
-      var ampm = hour >= 12 ? 'PM' : 'AM';
-      var hour12 = hour % 12 ? hour % 12 : 12;
+    function filterBy(month) {
+        var filters = ['==', 'month', month];
+        map.setFilter('earthquake-circles', filters);
+        map.setFilter('earthquake-labels', filters);
 
-      // update text in the UI
-      document.getElementById('active-hour').innerText = hour12 + ampm;
+        // Set the label to the month
+        document.getElementById('month').textContent = months[month];
+    }
+
+    map.on('load', function() {
+        // Data courtesy of http://earthquake.usgs.gov/
+        // Query for significant earthquakes in 2015 URL request looked like this:
+        // http://earthquake.usgs.gov/fdsnws/event/1/query
+        //    ?format=geojson
+        //    &starttime=2015-01-01
+        //    &endtime=2015-12-31
+        //    &minmagnitude=6'
+        //
+        // Here we're using d3 to help us make the ajax request but you can use
+        // Any request method (library or otherwise) you wish.
+        d3.json(
+            'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
+            function(err, data) {
+                if (err) throw err;
+
+                // Create a month property value based on time
+                // used to filter against.
+                data.features = data.features.map(function(d) {
+                    d.properties.month = new Date(d.properties.time).getMonth();
+                    return d;
+                });
+
+                map.addSource('earthquakes', {
+                    'type': 'geojson',
+                    data: data
+                });
+
+                map.addLayer({
+                    'id': 'earthquake-circles',
+                    'type': 'circle',
+                    'source': 'earthquakes',
+                    'paint': {
+                        'circle-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'mag'],
+                            6,
+                            '#FCA107',
+                            8,
+                            '#7F3121'
+                        ],
+                        'circle-opacity': 0.75,
+                        'circle-radius': [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'mag'],
+                            6,
+                            20,
+                            8,
+                            40
+                        ]
+                    }
+                });
+
+                map.addLayer({
+                    'id': 'earthquake-labels',
+                    'type': 'symbol',
+                    'source': 'earthquakes',
+                    'layout': {
+                        'text-field': [
+                            'concat',
+                            ['to-string', ['get', 'mag']],
+                            'm'
+                        ],
+                        'text-font': [
+                            'Open Sans Bold',
+                            'Arial Unicode MS Bold'
+                        ],
+                        'text-size': 12
+                    },
+                    'paint': {
+                        'text-color': 'rgba(0,0,0,0.5)'
+                    }
+                });
+
+                // Set filter to first month of the year
+                // 0 = January
+                filterBy(0);
+
+                document
+                    .getElementById('slider')
+                    .addEventListener('input', function(e) {
+                        var month = parseInt(e.target.value, 10);
+                        filterBy(month);
+                    });
+            }
+        );
     });
+</script>
 
-    document.getElementById('filters').addEventListener('change', function(e) {
-      var day = e.target.value;
-      // update the map filter
-      if (day === 'all') {
-        filterDay = ['!=', ['string', ['get','Day']], 'placeholder'];
-      } else if (day === 'weekday') {
-        filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], false, true];
-      } else if (day === 'weekend') {
-        filterDay = ['match', ['get', 'Day'], ['Sat', 'Sun'], true, false];
-      } else {
-        console.log('error');
-      };
-      map.setFilter('collisions', ['all', filterHour, filterDay]);
-    });
-
-  });
-  </script>
 </body>
-
 </html>
