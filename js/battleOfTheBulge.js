@@ -102,19 +102,19 @@ layers.appendChild(link);
 
 //add a handler for clicking/popups
 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
-mapOne.on('click', 'Earthquakes', function (e) {
-      //1. set the coordinates of the popup
-      var coordinates = e.features[0].geometry.coordinates;
-      //2. create the information that will display in the popup
-      // var description = e.features[0].properties.title;
-      var depth = e.features[0].geometry.depth;
-      var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
-      //3. make the popup
-      new mapboxgl.Popup()
-              .setLngLat(coordinates)
-              .setHTML(description)
-              .addTo(mapOne);
-});
+// mapOne.on('click', 'Earthquakes', function (e) {
+//       //1. set the coordinates of the popup
+//       var coordinates = e.features[0].geometry.coordinates;
+//       //2. create the information that will display in the popup
+//       // var description = e.features[0].properties.title;
+//       var depth = e.features[0].geometry.depth;
+//       var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
+//       //3. make the popup
+//       new mapboxgl.Popup()
+//               .setLngLat(coordinates)
+//               .setHTML(description)
+//               .addTo(mapOne);
+// });
 
 
 // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.

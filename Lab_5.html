@@ -108,23 +108,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
     <br>
 
     <h2>Battle of Ardennes (a.k.a. The Battle of the Bulge)</h2>
-    <div id="battleOfTheBulge">
-      <div class="map-overlay top">
-          <div class="map-overlay-inner">
-              <h2 id="time-slider">Dates of Battle</h2>
-              <label id="month"></label>
-              <input id="slider" type="range" min="0" max="11" step="1" value="0" />
-
-          <div class="map-overlay-inner">
-              <div id="legend" class="legend">
-                  <div class="bar"></div>
-                  <div>Magnitude (m)</div>
-              </div>
-          </div>
-      </div>
-    </div>
-
-
+    <div id="battleOfTheBulge"></div>
 
     <script src="js/ardennes.js">
     // var geojson =
@@ -133,7 +117,8 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
     //         "data": "geoJSON/battleOfTheBulge.json"
     //     });
     </script>
-    <p>This map depicts all units over the time span of the Ardennes Campaign (Battle of the Bulge - December 16, 1944 - January 25, 1945). Each element is a Division level echelon, hence the "XX" displayed over the unit type icon. If you click on an element icon, you will get a popup window with the name of the unit.
+    <p>This map depicts all units over the time span of the Ardennes Campaign (Battle of the Bulge - December 16, 1944 - January 25, 1945). Each element is a Division level echelon, which is what the "XX" displayed over the unit type icon represents.
+      <!-- If you click on an element icon, you will get a popup window with the name of the unit. -->
 
 
 
@@ -251,8 +236,14 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
       </div>
     </p>
 
+<p>
 
-  <p>
+During this project, there were several road blocks. The main issue was trying to display the data using a time-slider that showed the campaign unit movements over the range of a month and a half. The image below is a previous example of presenting the data with icons by individual divs. However, I was unable to overcome the issue of filtering the data by date using the Mapbox expressions documentation. The image below does not depict this, but it did allow the user to select an icon and a popup of the unit it represented would display.
+
+<img src="img/PreviousExample.PNG" alt="Unknown Air Defense">
+
+
+
 
 <!-- -------------------------------------
       <h2>A Memorial to my Grandfather (11/16/2019)</h3>
