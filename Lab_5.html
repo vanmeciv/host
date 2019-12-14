@@ -101,19 +101,37 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
     <script src="js/wWII_Battles.js"></script>
     <br>
     <br>
-    <p>This map is a display of all the WWII campaigns from 1943 to 1945. Each icon provides a popup with brief description and a link to Wikipedia for more information. There is also a button for presenting the Battle of the Bulge and a red dot that shows the campaign.
+    <p>This map is a display of all the WWII campaigns from 1943 to 1945. Each original WWII era flag icon provides a popup with brief description and a link to Wikipedia for more information. There is also a button for presenting the Battle of the Bulge and a red dot that shows the campaign (may require page reload). If you're unable to click one of the flags they are set show within certain zoom extents. Try adjusting your zoom level if you're having troubles.
     <br>
     <br>
     <br>
     <br>
+
     <h2>Battle of Ardennes (a.k.a. The Battle of the Bulge)</h2>
-    <div id="battleOfTheBulge"></div>
+    <div id="battleOfTheBulge">
+      <div class="map-overlay top">
+          <div class="map-overlay-inner">
+              <h2 id="time-slider">Dates of Battle</h2>
+              <label id="month"></label>
+              <input id="slider" type="range" min="0" max="11" step="1" value="0" />
+
+          <div class="map-overlay-inner">
+              <div id="legend" class="legend">
+                  <div class="bar"></div>
+                  <div>Magnitude (m)</div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
     <script src="js/ardennes.js">
-    var geojson =
-      map.addSource('units', {
-            "type": "geojson",
-            "data": "geoJSON/battleOfTheBulge.json"
-        });
+    // var geojson =
+    //   map.addSource('units', {
+    //         "type": "geojson",
+    //         "data": "geoJSON/battleOfTheBulge.json"
+    //     });
     </script>
     <p>This map depicts all units over the time span of the Ardennes Campaign (Battle of the Bulge - December 16, 1944 - January 25, 1945). Each element is a Division level echelon, hence the "XX" displayed over the unit type icon. If you click on an element icon, you will get a popup window with the name of the unit.
 
@@ -252,7 +270,7 @@ Thank you templatemo.com for an amazing foundation for  my website. This is the 
 
 
     </p>
-    
+
                     <div class="tags-share">
                         <div class="row">
                             <div class="col-md-6">
