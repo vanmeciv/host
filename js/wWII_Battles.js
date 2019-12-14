@@ -6,7 +6,7 @@ zoom: 4.3,
 pitch: 60,
 bearing: 33,
 attributionControl: false,
-style: 'mapbox://styles/isaacv/ck4063rrs2rs11crt2k4tozrm'
+style: 'mapbox://styles/isaacv/ck3p45rj90cs21cplzzo306x3'
 });
 battlesMap.addControl(new mapboxgl.AttributionControl(), 'top-right');
 
@@ -75,7 +75,7 @@ battlesMap.on('load', function(){
   battlesMap.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
 
 battlesMap.addLayer({
-  "id":"bulgeDot",
+  "id":"Lab5",
   "type":"symbol",
       "source": {
           "type": "geojson",
@@ -112,7 +112,7 @@ battlesMap.addLayer({
     "type":"symbol",
     "source":"wWII_Battles",
     "layout": {
-        "icon-image": "fire-station-11",
+        "icon-image": "WWII_US_Flag",
         "icon-size":1.5,
     },
     "paint": {}
@@ -132,25 +132,9 @@ battlesMap.on('click', 'wWII_Battles', function (e) {
       //1. set the coordinates of the popup
       var coordinates = e.features[0].geometry.coordinates;
       //2. create the information that will display in the popup
-      // var description = e.features[0].properties.title;
-      // var year = e.features[0].properties.name.slice(-4);
-      var brief = e.features[0].properties.description.slice(0,50);
-
-      //parsing URLs from descriptions using REGEX
-      function urlify(text) {
-          var urlRegex = /(([a-z]+:\/\/)?(([a-z0-9\-]+\.)+([a-z]{2}|aero|arpa|biz|com|coop|edu|gov|info|int|jobs|mil|museum|name|nato|net|org|pro|travel|local|internal))(:[0-9]{1,5})?(\/[a-z0-9_\-\.~]+)*(\/([a-z0-9_\-\.]*)(\?[a-z0-9+_\-\.%=&amp;]*)?)?(#[a-zA-Z0-9!$&'()*+.=-_~:@/?]*)?)(\s+|$)/ig
-          return text.replace(urlRegex, function(url) {
-              return '<a href="' + url + '">' + url + '</a>';
-          })
-          // or alternatively
-          // return text.replace(urlRegex, '<a href="$1">$1</a>')
-      }
-
-      var text = e.features[0].properties.description;
-      var html = urlify(text);
-
-      // var url = e.features[0].properties.description.slice("/",-1)
-      var description = "<h4>Battle Name: </h4>" + "<br>" + e.features[0].properties.name + "<br>Description: " + brief + "..." + "<br>More Details: " + "<a target='_blank' href=" + text + ">Click Here</a>";
+      var brief = e.features[0].properties.description.slice(0,150);
+      var url = e.features[0].properties.url
+      var description = "<h4><i>" + e.features[0].properties.name + "</i></h4><br><b>Description:</b> " + brief + "..." + "<br><b>More Details:</b> " + "<a target='_blank' href=" + url + ">Click Here</a>";
       //3. make the popup
       new mapboxgl.Popup()
               .setLngLat(coordinates)

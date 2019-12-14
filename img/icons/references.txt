@@ -1,3 +1,7 @@
+Battle of the Bulge: isaacv.2z8vg292
+15th: isaacv.80do1i12
+
+
 https://www.usna.edu/texis/search/?dropXSL=&pr=External+Meta&query=pguth%40usna.edu&as_values_010=
 https://www.usna.edu/Oceanography/midsResearch/guth_research.php
 https://www.usna.edu/Users/oceano/pguth/md_help/microdemtutorials/reg_digit_lab/lab_digitize_vector.htm
@@ -18,7 +22,7 @@ if SymbolID ===
 6===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Airborne_(Hostile).svg [Hostile_Unit_Airborne_Solid.png]
 7===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Air_Defence.svg [Friendly_Unit_Air_Defense.png]
 9===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Neutral).svg (Neutral Infantry) [Neutral_Unit_Infantry_Solid.png]
-10===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Unknown_Allegiance_-_Armour.svg (Unknown Air Defense) ___________
+10===https://commons.wikimedia.org/wiki/File:NATO_Map_Symbol_-_Unknown_Allegiance_-_Air_Defence.svg (Unknown Air Defense)
 11===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Armour_(Neutral).svg (POLAND Armor) MAYBE ORANGE???
 12 or 15===https://commons.wikimedia.org/wiki/NATO_Military_Map_Symbols#/media/File:NATO_Map_Symbol_-_Infantry_(Neutral).svg (POLAND Infantry) MAYBE ORANGE or YELLOW???
 13===https://commons.wikimedia.org/wiki/File:82nd_Airborne_Division_CSIB.svg (82nd Airborne Logo) [82nd_Airborne_Division.png]

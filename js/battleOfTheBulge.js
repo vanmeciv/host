@@ -1,108 +1,133 @@
+mapOne.on('load', function () {
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWN2IiwiYSI6ImNrMnpqYnVxaTA1b3IzbXBnaG5zY3o3eTEifQ.kMdIcXYBFKHTorj3Hxgi7g';
-var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/light-v10',
-center: [31.4606, 20.7927],
-zoom: 0.5
-});
 
-var months = [
-'January',
-'February',
-'March',
-'April',
-'May',
-'June',
-'July',
-'August',
-'September',
-'October',
-'November',
-'December'
-];
+  mapOne.addSource('earthquakes', {
+          "type": "geojson",
+          "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson"
+      });
+    // add custom icon to the map (https://docs.mapbox.com/mapbox-gl-js/example/add-image/)
+    mapOne.loadImage('img/icons/1.png', function(error, image) {
+        if (error) throw error;
+        mapOne.addImage('one', image);
+        mapOne.addLayer({
+            "id": "Friendly Infantry",
+            "type": "symbol",
+            "source": "earthquakes",
+            "layout": {
+                "icon-image": "one",
+                "icon-size": 0.075,
+                "visibility":"visible"
+            }
+        });
+    });
 
-function filterBy(month) {
+    mapOne.loadImage('img/icons/2.png', function(error, image) {
+        if (error) throw error;
+        mapOne.addImage('two', image);
+        mapOne.addLayer({
+            "id": "Neutral Armor",
+            "type": "symbol",
+            "source": "earthquakes",
+            "layout": {
+                "icon-image": "two",
+                "icon-size": 0.075,
+                "visibility":"visible"
+            }
+        });
+    });
 
-var filters = ['==', 'month', month];
-map.setFilter('earthquake-circles', filters);
-map.setFilter('earthquake-labels', filters);
+    mapOne.loadImage('img/icons/3.png', function(error, image) {
+        if (error) throw error;
+        mapOne.addImage('three', image);
+        mapOne.addLayer({
+            "id": "Friendly Armor",
+            "type": "symbol",
+            "source": "earthquakes",
+            "layout": {
+                "icon-image": "three",
+                "icon-size": 0.075,
+                "visibility":"visible"
+            }
+        });
+    });
 
-// Set the label to the month
-document.getElementById('month').textContent = months[month];
+    mapOne.loadImage('img/icons/4.png', function(error, image) {
+        if (error) throw error;
+        mapOne.addImage('four', image);
+        mapOne.addLayer({
+            "id": "Hostile Infantry",
+            "type": "symbol",
+            "source": "earthquakes",
+            "layout": {
+                "icon-image": "four",
+                "icon-size": 0.075,
+                "visibility":"visible"
+            }
+        });
+    });
+
+
+
+  });
+
+var toggleableLayerIds = [ 'Friendly Infantry', 'Neutral Armor', 'Friendly Armor', 'Hostile Infantry' ];
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+var id = toggleableLayerIds[i];
+
+var link = document.createElement('a');
+link.href = '#';
+link.className = 'active';
+link.textContent = id;
+
+link.onclick = function (e) {
+var clickedLayer = this.textContent;
+e.preventDefault();
+e.stopPropagation();
+
+var visibility = mapOne.getLayoutProperty(clickedLayer, 'visibility');
+
+if (visibility === 'visible') {
+mapOne.setLayoutProperty(clickedLayer, 'visibility', 'none');
+this.className = '';
+} else {
+this.className = 'active';
+mapOne.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+}
+};
+
+var layers = document.getElementById('layerToggleMenu');
+layers.appendChild(link);
 }
 
-map.on('load', function() {
-
-// Data courtesy of http://earthquake.usgs.gov/
-// Query for significant earthquakes in 2015 URL request looked like this:
-// http://earthquake.usgs.gov/fdsnws/event/1/query
-//    ?format=geojson
-//    &starttime=2015-01-01
-//    &endtime=2015-12-31
-//    &minmagnitude=6'
-//
-// Here we're using d3 to help us make the ajax request but you can use
-// Any request method (library or otherwise) you wish.
-d3.json('geoJSON/battleOfTheBulge.json', function(err, data) {
-if (err) throw err;
-
-// Create a month property value based on time
-// used to filter against.
-data.features = data.features.map(function(d) {
-d.properties.month = new Date(d.properties.time).getMonth();
-return d;
+//add a handler for clicking/popups
+//Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/
+mapOne.on('click', 'Earthquakes', function (e) {
+      //1. set the coordinates of the popup
+      var coordinates = e.features[0].geometry.coordinates;
+      //2. create the information that will display in the popup
+      // var description = e.features[0].properties.title;
+      var depth = e.features[0].geometry.depth;
+      var description = "<h4>"+e.features[0].properties.title+"</h4>" + "<p>Depth: " + e.features[0].geometry.depth + "<br>Status: " + e.features[0].properties.status + "<br> Tsunami: " + e.features[0].properties.tsunami + "<br> More Details: " + "<a target='_blank' href=" + e.features[0].properties.url + ">Click Here</a>";
+      //3. make the popup
+      new mapboxgl.Popup()
+              .setLngLat(coordinates)
+              .setHTML(description)
+              .addTo(mapOne);
 });
 
-map.addSource('earthquakes', {
-'type': 'geojson',
-data: data
+
+// Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+mapOne.on('click', 'Earthquakes', function (e) {
+mapOne.flyTo({center: e.features[0].geometry.coordinates});
 });
 
-map.addLayer({
-'id': 'earthquake-circles',
-'type': 'circle',
-'source': 'earthquakes',
-'paint': {
-'circle-color': [
-'interpolate',
-['linear'],
-['get', 'mag'],
-6, '#FCA107',
-8, '#7F3121'
-],
-'circle-opacity': 0.75,
-'circle-radius': [
-'interpolate',
-['linear'],
-['get', 'mag'],
-6, 20,
-8, 40
-]
-}
+// Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+mapOne.on('mouseenter', 'Earthquakes', function () {
+mapOne.getCanvas().style.cursor = 'pointer';
 });
 
-map.addLayer({
-'id': 'earthquake-labels',
-'type': 'symbol',
-'source': 'earthquakes',
-'layout': {
-'text-field': ['concat', ['to-string', ['get', 'mag']], 'm'],
-'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-'text-size': 12
-},
-'paint': {
-'text-color': 'rgba(0,0,0,0.5)'
-}
-});
-
-// Set filter to first month of the year
-// 0 = January
-filterBy(0);
-
-document.getElementById('slider').addEventListener('input', function(e) {
-var month = parseInt(e.target.value, 10);
-filterBy(month);
-});
-});
+// Change it back to a pointer when it leaves.
+mapOne.on('mouseleave', 'Earthquakes', function () {
+mapOne.getCanvas().style.cursor = '';
 });
