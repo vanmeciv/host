@@ -83,17 +83,17 @@
     });
 
     var months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
+        'Dec 15 1944',
+        'Dec 16 1944',
+        'Dec 18 1944',
+        'Dec 19 1944',
+        'Dec 21 1944',
+        'Dec 23 1944',
+        'Dec 27 1944',
+        'Jan 01 1945',
+        'Jan 03 1945',
+        'Jan 15 1945',
+        'Jan 18 1945',
         'December'
     ];
 
@@ -181,6 +181,81 @@
                         'text-color': 'rgba(0,0,0,0.5)'
                     }
                 });
+
+								map.addLayer({
+							  'id': 'battleOfTheBulge-19zlo2',
+							  'type': 'symbol',
+							  'source': {
+							    'type': 'vector',
+							    'url': 'mapbox://isaacv.2z8vg292'
+							  },
+							  'source-layer': 'battleOfTheBulge-19zlo2',
+								"layout": {
+									'text-field': [
+											'concat',
+											['to-string', ['get', 'Date']],
+
+									],
+									'text-font': [
+											'Open Sans Bold',
+											'Arial Unicode MS Bold'
+									],
+									'text-size': 12
+										// "icon-image": "fire-station-11",
+					          // "icon-size":1.5,
+					      },
+					      "paint": {}
+					    	});
+
+								map.addLayer({
+							  'id': '19441215-704npt',
+							  'type': 'symbol',
+							  'source': {
+							    'type': 'vector',
+							    'url': 'mapbox://isaacv.0x0z26sw'
+							  },
+							  'source-layer': '19441215-704npt',
+								"layout": {
+									'text-field': [
+											'concat',
+											['to-string', ['get', 'Date']],
+
+									],
+									'text-font': [
+											'Open Sans Bold',
+											'Arial Unicode MS Bold'
+									],
+									'text-size': 12
+										// "icon-image": "fire-station-11",
+					          // "icon-size":1.5,
+					      },
+					      "paint": {}
+					    	});
+
+								map.addLayer({
+								'id': '19441215-704npt',
+								'type': 'symbol',
+								'source': {
+									'type': 'vector',
+									'url': 'mapbox://isaacv.0x0z26sw'
+								},
+								'source-layer': '19441215-704npt',
+								"layout": {
+									'text-field': [
+											'concat',
+											['to-string', ['get', 'Date']],
+
+									],
+									'text-font': [
+											'Open Sans Bold',
+											'Arial Unicode MS Bold'
+									],
+									'text-size': 12
+										// "icon-image": "fire-station-11",
+										// "icon-size":1.5,
+								},
+								"paint": {}
+								});
 
                 // Set filter to first month of the year
                 // 0 = January
